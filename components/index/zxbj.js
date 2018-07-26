@@ -2,7 +2,9 @@ import { createForm, formShape } from 'rc-form';
 import { Picker, List} from 'antd-mobile';
 import arrayTreeFilter from 'array-tree-filter';
 import  district  from '../data/city_data';
-
+import {connect} from 'react-redux';
+import * as action from '../../redux/actions';
+import { bindActionCreators } from 'redux';
 
 class Form extends React.Component {
     state = {
@@ -15,6 +17,7 @@ class Form extends React.Component {
 
     submit = () => {
         this.props.form.validateFields((error, value) => {
+            this.props.indexBaojia({value})
             console.log(error, value);
         });
     }
@@ -58,5 +61,13 @@ class Form extends React.Component {
         );
     }
 }
-
-export default createForm()(Form);
+function mapStateToProps(state) {
+    return { }
+  }
+function mapDispatchToProps(dispatch) {
+    return {
+      ...bindActionCreators(action, dispatch)
+    }
+ }
+const Index = createForm()(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)
