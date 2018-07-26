@@ -1,0 +1,191 @@
+.nav-content {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  -webkit-flex-flow: wrap;
+  padding-bottom: 0.15rem;
+  background-color: #fff;
+  position: relative;
+  z-index: 3;
+}
+.nav-content li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  background-color: #fff;
+}
+.nav-content li a {
+  display: block;
+  width: 100%;
+  padding-bottom: 0.117rem;
+}
+.nav-content li a i {
+  display: block;
+  height: 0.7rem;
+  width: 0.7rem;
+  margin: 0.2rem auto 0.065rem;
+}
+.nav-content li a span {
+  color: #666;
+  font-size: 12px;
+}
+.nav-content li:nth-child(1) i {
+  background: url(../img/fenlei-gongsi@2x.png) no-repeat;
+  background-size: cover;
+}
+.nav-content li:nth-child(2) i {
+  background: url(../img/fenlei-xiaoguotu@2x.png) no-repeat;
+  background-size: cover;
+}
+.nav-content li:nth-child(3) i {
+  background: url(../img/fenlei-gongsi@2x.png) no-repeat;
+  background-size: cover;
+}
+.nav-content li:nth-child(4) i {
+  background: url(../img/fenlei-baishitong@2x.png) no-repeat;
+  background-size: cover;
+}
+.nav-content li:nth-child(5) i {
+  background: url(../img/fenlei-zaixianbaojia@2x.png) no-repeat;
+  background-size: cover;
+}
+.nav-content li:nth-child(6) i {
+  background: url(../img/fenlei-genrenzhongxin@2x.png) no-repeat;
+  background-size: cover;
+}
+.none {
+  display: none;
+}
+.Index {
+  background: #F7F7F7;
+}
+.Index .index-navbar {
+  background: #fff;
+  padding: 0.2rem 0 ;
+  margin-bottom: 0.2rem;
+}
+.Index .index-navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0 .05rem;
+  position: relative;
+  overflow: hidden;
+}
+.Index .index-navbar ul li {
+  flex: none;
+  width: 25%;
+  margin-bottom: .1rem;
+  text-align: center;
+}
+.Index .index-navbar ul li a {
+  display: block;
+}
+.Index .index-navbar ul li a img {
+  height: 1.06rem;
+  width: 1.06rem;
+}
+.Index .index-navbar ul li a span {
+  display: block;
+  padding-top: .04rem;
+  font-size: 12px;
+}
+.Index .zxbj-form {
+  width: 100%;
+  height: 5.2rem;
+  background: #ffffff;
+  padding-top: 0.4rem;
+}
+.Index .zxbj-form .yusuantext {
+  height: 0.28rem;
+  width: 100%;
+  position: relative;
+  margin-bottom: .1528rem;
+  color: #333;
+  text-align: center;
+  line-height: 0.28rem;
+  font-size: 0.28rem;
+}
+.Index .zxbj-form .yusuantext:after,
+.Index .zxbj-form .yusuantext:before {
+  position: absolute;
+  top: .07rem;
+  width: 9%;
+  height: 1px;
+  content: ' ';
+  border-top: 1px solid #c8c8c8;
+}
+.Index .zxbj-form .yusuantext:after {
+  right: 18%;
+}
+.Index .zxbj-form .yusuantext:before {
+  left: 18%;
+}
+.Index .index-form {
+  padding: .05rem .25rem .156rem .25rem;
+  background-color: #fff;
+}
+.Index .index-form .form-list-box {
+  height: 0.8rem;
+  margin-bottom: 0.18rem;
+  text-align: left;
+  border: 1px solid #e2e2e2;
+  border-radius: .1rem;
+  position: relative;
+  color: #333;
+  font-size: .11rem;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+.Index .index-form .form-list-box input {
+  width: 6rem;
+  height: 0.8rem;
+  border: none;
+  padding: 0 .8rem;
+}
+.Index .index-form .form-list-box .city,
+.Index .index-form .form-list-box .area,
+.Index .index-form .form-list-box .phone {
+  width: 0.5rem;
+  height: 0.5rem;
+  display: block;
+  position: absolute;
+  left: 0.15rem;
+  top: 0.15rem;
+  font-size: 0.25rem;
+}
+.Index .index-form .form-list-box .city {
+  background: url(../img/shouye-dingwei@2x.png) no-repeat;
+  background-size: cover;
+  z-index: 10;
+}
+.Index .index-form .form-list-box .area {
+  background: url(../img/shouye-fangwu@2x.png) no-repeat;
+  background-size: cover;
+}
+.Index .index-form .form-list-box .phone {
+  background: url(../img/shouye-shouji@2x.png) no-repeat;
+  background-size: cover;
+}
+.Index .index-form .form-list-box .am-list-extra {
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-left: 0.5rem;
+  font-size: 0.25rem;
+  color: #333;
+  flex-basis: auto;
+}
+.Index .index-form button {
+  width: 7rem;
+  height: 0.8rem;
+  background: #f7c94c;
+  border-radius: 6px;
+  border: none;
+  color: #FFF;
+  font-size: 0.28rem;
+}
