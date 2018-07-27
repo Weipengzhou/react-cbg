@@ -28,6 +28,7 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.1.6",
     "react-redux": "^5.0.7",
+    "react-sticky": "^6.0.3",
     "redux-saga": "^0.16.0",
     "style-loader": "^0.21.0"
   }

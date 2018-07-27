@@ -10,8 +10,6 @@ function* indexBaojia(e) {
        
     console.log(e)
       
-        
-       
     } catch (err) {
         
      }

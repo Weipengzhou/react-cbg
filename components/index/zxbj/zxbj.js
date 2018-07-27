@@ -1,9 +1,9 @@
 import { createForm, formShape } from 'rc-form';
 import { Picker, List} from 'antd-mobile';
 import arrayTreeFilter from 'array-tree-filter';
-import  district  from '../data/city_data';
+import  district  from '../../data/city_data';
 import {connect} from 'react-redux';
-import * as action from '../../redux/actions';
+import * as action from '../../../redux/actions';
 import { bindActionCreators } from 'redux';
 
 class Form extends React.Component {

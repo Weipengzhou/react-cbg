@@ -3,8 +3,9 @@ import Link from 'next/link'
 import Head from '../components/head'
 import stylesheet from '../index.less'
 import Nav from '../components/nav'
-import Slider from '../components/index/slider'
-import Zxbj from '../components/index/zxbj'
+import Slider from '../components/index/slider/slider'
+import Zxbj from '../components/index/zxbj/zxbj'
+import Xgt from '../components/index/xgt/xgt'
 
 const IndexNav=(props)=>(
   <li><Link href={props.href}><a><img src={props.src} alt={props.alt}/><span>{props.name}</span></a></Link></li>
@@ -31,7 +32,7 @@ export default () => (
        <p className="yusuantext"><span>6</span>秒估算装修报价</p>
        <Zxbj/>
     </div>
-
+    <Xgt/>
 
     <style jsx global>{ stylesheet }</style>
    
