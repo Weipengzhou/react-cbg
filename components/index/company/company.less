@@ -1,0 +1,94 @@
+
+   .find-company{
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    >ul {
+        position: relative;
+        display: inline-flex;
+        padding: .34rem .25rem .2rem;
+        li{
+            position: relative;
+            float: left;
+            display: block;
+            width: 2.8rem;
+            height: 3.2rem;
+            background-color: #fff;
+            margin-left: .2rem;
+            box-shadow: 0 0 6px 1px #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            .start-level{
+                height: 0.4rem;width: 1.7rem;
+                background: url(/static/img/xing.png) no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+            }
+            .company-link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                .company-pic {
+                    width: .8rem;
+                    height: .8rem;
+                    border-radius: 50%;
+                    margin: .35rem auto 0;
+                    border: 1px solid #f0f0f0;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                    }
+                }
+                .company-name {
+                    width: 90%;
+                    margin: 0 auto;
+                    padding-top: .18rem;
+                    padding-bottom: .06rem;
+                    font-size: .29rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;text-align: center;
+                }
+                .company-disc {
+                    margin-top: .1rem;
+                    font-size: .24rem;
+                    color: #999;
+                    text-align: center;
+                }
+            }
+            .company-poster-inquiry {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: .5rem;
+                font-size: .28rem;
+                text-align: center;
+                line-height: .5rem;
+                color: #fff;
+                background-color: #ffb200;
+                .company-icon-phone {
+                    position: relative;
+                    font-size: .24rem;
+                    color: #fff;
+                }
+                .company-icon-phone:after {
+                    position: absolute;
+                    top: 50%;
+                    left: -.26rem;
+                    width: .32rem;
+                    height: .28rem;
+                    margin-top: -0.14rem;
+                    content: '';
+                    background: url('/static/img/call-gongsi@2x.png') no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+        li:first-child {
+            margin-left: 0;
+        }
+    }
+    
+   }
+    

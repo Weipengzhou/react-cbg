@@ -1,6 +1,5 @@
 import NextHead from 'next/head'
 import { string } from 'prop-types'
-
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
@@ -15,6 +14,8 @@ const Head = (props) => (
     <link rel="apple-touch-icon" href="/static/touch-icon.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"></link>
+    <link href="https://cdn.bootcss.com/antd-mobile/2.1.10/antd-mobile.css" rel="stylesheet"></link>
     <script src='/static/js/rem.js'></script>
     <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || ''} />
@@ -25,8 +26,7 @@ const Head = (props) => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    
-   
+
   </NextHead>
   
 )

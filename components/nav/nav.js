@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import stylesheet from './nav.less'
 import {Component} from 'react'
 import { NavBar, Icon ,Popover} from 'antd-mobile';
 
@@ -42,6 +43,7 @@ class Nav extends Component{
               </div>
             
            </nav>
+           <style>{ stylesheet }</style>
     </div>
     )
   }
