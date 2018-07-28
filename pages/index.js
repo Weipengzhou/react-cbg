@@ -8,7 +8,7 @@ import Zxbj from '../components/index/zxbj/zxbj'
 import List from '../components/index/xgt/xgt'
 import Company from '../components/index/company/company'
 import TabExample from '../components/tab/tab'
-
+import ChildTab from '../components/index/baikeTab/baikeTab'
 const IndexNav = (props) => (
   <ul className='clearfix'>
     {props.ListData.map((e, index) => (
@@ -75,13 +75,166 @@ const tabs={
     { title: '空间' },
     { title: '局部' },
     { title: '风格' },
-  ],
-  baike:[
-    { title: '攻略'},
-    { title: '问答' },
-    { title: '资讯' },
-    { title: '百科' },
   ]
+}
+const Baike = {
+	"tab": [{title:'百科'},{title:"功略"},{title:'资讯'} ],
+	"list": [
+    {
+		"tabs": [{title:'生活百科'},{title:"其他百科"},{title:'生活百科'},{title:"其他百科"},{title:"其他百科"}],
+		"data": [{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "aaviews"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			},]
+		}, {
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}]
+		},{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}]
+		},{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}]
+		},{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}]
+		}]
+  },
+   {
+		"tabs": [{title:'生活攻略'},{title:"其他攻略"}],
+		"data": [{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}]
+		}, {
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}]
+		}]
+	},{
+		"tabs": [{title:'生活资讯'},{title:"其他资讯"}],
+		"data": [{
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}]
+		}, {
+			"t_list": [{
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}, {
+				"url": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "views"
+			}]
+		}]
+	}]
 }
 export default () => (
   <div className='Index'>
@@ -108,9 +261,8 @@ export default () => (
       </div>
 
       <Company CompanyList={CompanyList} />
-      <TabExample title={'装修百事通'}  tabs={tabs.baike}>
-
-      </TabExample>
+      <ChildTab Baike={Baike} title={'装修百事通'}/>
+     
     </div>
     <style>{stylesheet}</style>
   </div>

@@ -5,7 +5,6 @@ import Style from './tab.less'
 
 
 function renderTabBar(props) {
-    console.log(props)
     return (<Sticky>
       {({ style }) => <div className='abc clearfix' style={{ ...style, zIndex: 1 }}> <Link href=''><a  className='title'>{props.tabBarTextStyle}</a></Link><Tabs.DefaultTabBar {...props} /></div>}
     </Sticky>);
