@@ -9,6 +9,8 @@ import List from '../components/index/xgt/xgt'
 import Company from '../components/index/company/company'
 import TabExample from '../components/tab/tab'
 import ChildTab from '../components/index/baikeTab/baikeTab'
+import Footer from '../components/footer/footer'
+
 const IndexNav = (props) => (
   <ul className='clearfix'>
     {props.ListData.map((e, index) => (
@@ -78,52 +80,36 @@ const tabs={
   ]
 }
 const Baike = {
-	"tab": [{title:'百科'},{title:"功略"},{title:'资讯'} ],
+	"tab": [{title:'百科'}],
 	"list": [
     {
-		"tabs": [{title:'生活百科'},{title:"其他百科"},{title:'生活百科'},{title:"其他百科"},{title:"其他百科"}],
+		"tabs": [{title:'生活百科',cate_pinyin:'shenghuo'},{title:"装修百科",cate_pinyin:'zxbk'},{title:'房产百科',cate_pinyin:'fangchan'},{title:"设计百科",cate_pinyin:'sheji'},{title:"品牌百科",cate_pinyin:'pinpai'}],
 		"data": [{
 			"t_list": [{
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
+				"intro": "是多少是事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上",
+				"updated_at": "2018-05-16",
 				"views": "aaviews"
 			}, {
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
-				"updated_at": "updated_at",
+				"updated_at": "2018-05-16",
 				"views": "views"
 			},]
 		}, {
 			"t_list": [{
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
-				"updated_at": "updated_at",
+				"updated_at": "2018-05-16",
 				"views": "bbviews"
 			}, {
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "bbviews"
-			}]
-		},{
-			"t_list": [{
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "bbviews"
-			}, {
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
@@ -132,14 +118,14 @@ const Baike = {
 			}]
 		},{
 			"t_list": [{
-				"url": "url",
+		 		"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
 				"updated_at": "updated_at",
 				"views": "bbviews"
 			}, {
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
@@ -148,14 +134,30 @@ const Baike = {
 			}]
 		},{
 			"t_list": [{
-				"url": "url",
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
 				"updated_at": "updated_at",
 				"views": "bbviews"
 			}, {
-				"url": "url",
+				"id": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}]
+		},{
+			"t_list": [{
+				"id": "url",
+				"img": "/uploads/20180721/1532140036150993.jpg",
+				"title": "title",
+				"intro": "intro",
+				"updated_at": "updated_at",
+				"views": "bbviews"
+			}, {
+				"id": "url",
 				"img": "/uploads/20180721/1532140036150993.jpg",
 				"title": "title",
 				"intro": "intro",
@@ -163,79 +165,9 @@ const Baike = {
 				"views": "bbviews"
 			}]
 		}]
-  },
-   {
-		"tabs": [{title:'生活攻略'},{title:"其他攻略"}],
-		"data": [{
-			"t_list": [{
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}, {
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}]
-		}, {
-			"t_list": [{
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}, {
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}]
-		}]
-	},{
-		"tabs": [{title:'生活资讯'},{title:"其他资讯"}],
-		"data": [{
-			"t_list": [{
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}, {
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}]
-		}, {
-			"t_list": [{
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}, {
-				"url": "url",
-				"img": "/uploads/20180721/1532140036150993.jpg",
-				"title": "title",
-				"intro": "intro",
-				"updated_at": "updated_at",
-				"views": "views"
-			}]
-		}]
-	}]
+  }]
 }
+
 export default () => (
   <div className='Index'>
     <Head title="金蚂蚁装修网" />
@@ -259,11 +191,10 @@ export default () => (
         <a className="title" href="/company">装修公司</a>
         <a className='more' href='/company'>更多></a>
       </div>
-
       <Company CompanyList={CompanyList} />
-      <ChildTab Baike={Baike} title={'装修百事通'}/>
-     
     </div>
+		<ChildTab Baike={Baike} title={'装修百事通'} style={{marginTop:'0.2rem'}}/>
+		<Footer/>
     <style>{stylesheet}</style>
   </div>
 )

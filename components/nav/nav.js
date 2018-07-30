@@ -23,7 +23,7 @@ class Nav extends Component{
   render(){
     return(
       <div>
-          <div className={this.state.visible?'bg':'bg none'} style={{position:'absolute',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'1'}} onClick={this.closeClick}></div>
+          <div className={this.state.visible?'bg':'bg none'} style={{position:'fixed',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'1'}} onClick={this.closeClick}></div>
           <nav style={{width:'100%',position:'fixed',top:0,zIndex:'1111'}}>
             <NavBar style={{backgroundColor:'rgba(255,255,255,1)',color:'#000',borderBottom:'1px solid #eee' }}
               mode="light"
