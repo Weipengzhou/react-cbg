@@ -10,7 +10,7 @@ import Company from '../components/index/company/company'
 import TabExample from '../components/tab/tab'
 import ChildTab from '../components/index/baikeTab/baikeTab'
 import Footer from '../components/footer/footer'
-
+import fetch from 'isomorphic-unfetch'
 const IndexNav = (props) => (
   <ul className='clearfix'>
     {props.ListData.map((e, index) => (
@@ -168,35 +168,49 @@ const Baike = {
   }]
 }
 
-export default () => (
-  <div className='Index'>
-    <Head title="金蚂蚁装修网" />
-    <Nav title='首页'>
-			<Link href='/index'><a style={{color:'#333',fontSize:'14px'}}>郑州∨</a></Link>
-		</Nav>
-    <Slider />
-    <div className='index-navbar'>
-      <IndexNav ListData={ListData} />
-    </div>
-    <div className='zxbj-form'>
-      <p className="yusuantext"><span>6</span>秒估算装修报价</p>
-      <Zxbj />
-    </div>
-      <TabExample title={'看设计'} tabs={tabs.sheji}>
-        <List data={XiaoguotuData.huxing} more='/xgt/huxing'/>  
-        <List data={XiaoguotuData.kongjian} more='/xgt/kongjian'/>     
-        <List data={XiaoguotuData.jubu} more='/xgt/jubu' />   
-        <List data={XiaoguotuData.style} more='/xgt/style'/>   
-      </TabExample>
-     <div className='home-find-company'>
-      <div className='header'>
-        <a className="title" href="/company">装修公司</a>
-        <a className='more' href='/company'>更多></a>
-      </div>
-      <Company CompanyList={CompanyList} />
-    </div>
-		<ChildTab Baike={Baike} title={'装修百事通'} style={{marginTop:'0.2rem'}}/>
-		<Footer/>
-    <style>{stylesheet}</style>
-  </div>
-)
+const Shouye= (props) =>{
+
+	return  (
+		<div className='Index'>
+			<Head title="金蚂蚁装修网" />
+			<Nav title='首页'>
+				<Link href='/'><a style={{color:'#333',fontSize:'14px'}}>郑州∨</a></Link>
+			</Nav>
+			<Slider />
+			<div className='index-navbar'>
+				<IndexNav ListData={ListData} />
+			</div>
+			<div className='zxbj-form'>
+				<p className="yusuantext"><span>6</span>秒估算装修报价</p>
+				<Zxbj />
+			</div>
+				<TabExample title={'看设计'} tabs={tabs.sheji}>
+					<List data={XiaoguotuData.huxing} more='/xgt/huxing'/>  
+					<List data={XiaoguotuData.kongjian} more='/xgt/kongjian'/>     
+					<List data={XiaoguotuData.jubu} more='/xgt/jubu' />   
+					<List data={XiaoguotuData.style} more='/xgt/style'/>   
+				</TabExample>
+			 <div className='home-find-company'>
+				<div className='header'>
+					<a className="title" href="/company">装修公司</a>
+					<a className='more' href='/company'>更多></a>
+				</div>
+				<Company CompanyList={CompanyList} />
+			</div>
+			<ChildTab Baike={Baike} title={'装修百事通'} style={{marginTop:'0.2rem'}}/>
+			<Footer/>
+			<style>{stylesheet}</style>
+		</div>
+	)
+}
+
+Shouye.getInitialProps = async function (context) {
+
+	const { id } = context.query
+ 
+	console.log(id)
+
+
+}
+
+export default Shouye

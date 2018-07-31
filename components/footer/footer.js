@@ -1,18 +1,20 @@
 import Link from 'next/link'
-import stylesheet from './footer.less'
+import footer from './footer.less'
 
 const Footer=()=>(<footer>
         <div className='hotCity'>
             <h2>热门城市</h2>
-            <a href='/beijing'>北京</a>
-            <a href='/shanghai'>上海</a>
-            <a href='/guangzhou'>广州</a>
-            <a href='/shenzhen'>深圳</a>
+            <Link as={`/beijing`} href={`/shouye?id=beijing`}><a>北京</a></Link>
+            <Link as={`/shanghai`} href={`/shouye?id=shanghai`}><a>上海</a></Link>
+            <Link as={`/guangzhou`} href={`/shouye?id=guangzhou`}><a>广州</a></Link>
+            <Link as={`/shenzhen`} href={`/shouye?id=shenzhen`}><a>深圳</a></Link>
+           
             <br/>
-            <a href='/nanjing'>南京</a>
-            <a href='/suzhou'>苏州</a>
-            <a href='/hanzhou'>杭州</a>
-            <a href='/zhengzhou'>郑州</a>
+            <Link as={`/nanjing`} href={`/shouye?id=nanjing`}><a>南京</a></Link>
+            <Link as={`/suzhou`} href={`/shouye?id=suzhou`}><a>苏州</a></Link>
+            <Link as={`/hanzhou`} href={`/shouye?id=hanzhou`}><a>杭州</a></Link>
+            <Link as={`/zhengzhou`} href={`/shouye?id=zhengzhou`}><a>郑州</a></Link>
+        
         </div>
         <div className='top'>
              <a href='/about'>电脑版</a>
@@ -25,7 +27,7 @@ const Footer=()=>(<footer>
             <p>ICP备案：豫ICP备17030941号-2</p>
         </div>
 
-       <style>{stylesheet}</style>
+       <style>{footer}</style>
 </footer>)
 
 
