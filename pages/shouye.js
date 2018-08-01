@@ -169,7 +169,7 @@ const Baike = {
 }
 
 const Shouye= (props) =>{
-
+		console.log(props)
 	return  (
 		<div className='Index'>
 			<Head title="金蚂蚁装修网" />
@@ -192,7 +192,7 @@ const Shouye= (props) =>{
 				</TabExample>
 			 <div className='home-find-company'>
 				<div className='header'>
-					<a className="title" href="/company">装修公司</a>
+					<a className="title" href={`${props.show}/gs`}>装修公司</a>
 					<a className='more' href='/company'>更多></a>
 				</div>
 				<Company CompanyList={CompanyList} />
@@ -207,9 +207,8 @@ const Shouye= (props) =>{
 Shouye.getInitialProps = async function (context) {
 
 	const { id } = context.query
- 
-	console.log(id)
 
+  return  {show:id}
 
 }
 

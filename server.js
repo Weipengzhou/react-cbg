@@ -38,6 +38,14 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  server.get('/:id/gs', (req, res) => {
+
+    const actualPage = '/gs'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
 
   server.get('*', (req, res) => {
     return handle(req, res)
