@@ -6,7 +6,30 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
+  server.get('/sheji', (req, res) => {
 
+    const actualPage = '/sheji'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+  server.get('/baojia', (req, res) => {
+
+    const actualPage = '/baojia'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+  server.get('/yanfang', (req, res) => {
+
+    const actualPage = '/yanfang'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
   server.get('/:id', (req, res) => {
 
     const actualPage = '/shouye'

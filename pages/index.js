@@ -3,6 +3,8 @@ import Head from '../components/head'
 import Nav from '../components/nav/nav'
 import city from '../components/city/city.less';
 import Footer from '../components/footer/footer';
+import { Icon } from 'antd-mobile';
+
 const Row = (props) => (
     <div>
         {props.lists.map((a, i) => (
@@ -57,7 +59,7 @@ const Index = () => {
     return (
         <div className='cityChose'>
             <Head title="金蚂蚁装修网" />
-            <Nav title="切换城市"><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}>{"<"} </a></Nav>
+            <Nav title="切换城市"><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}><Icon type="left"  size='md'/> </a></Nav>
             <div className='citypage' style={{marginBottom:'0.2rem'}}>
                 <div className='current-city'>
 
