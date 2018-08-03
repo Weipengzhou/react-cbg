@@ -18,16 +18,7 @@ const IndexNav = (props) => (
     ))}
   </ul>
 )
-const ListData = [
-  { url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
-  { url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
-  { url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
-  { url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
-  { url: '/company', imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
-  { url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
-  { url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
-  { url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
-]
+
 
 const CompanyList = [
   {id: '1', name: '北京佳时特装饰工程有限公司', company_logo: '/uploads/20180706/1530847987631095.jpg', public_praise: '1234'},
@@ -169,7 +160,16 @@ const Baike = {
 }
 
 const Shouye= (props) =>{
-		console.log(props)
+	const ListData = [
+		{ url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
+		{ url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
+		{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
+		{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
+		{ url:`${props.show}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
+		{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
+		{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
+		{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
+	]
 	return  (
 		<div className='Index'>
 			<Head title="金蚂蚁装修网" />
@@ -193,7 +193,7 @@ const Shouye= (props) =>{
 			 <div className='home-find-company'>
 				<div className='header'>
 					<a className="title" href={`${props.show}/gs`}>装修公司</a>
-					<a className='more' href='/company'>更多></a>
+					<a className='more' href={`${props.show}/gs`}>更多></a>
 				</div>
 				<Company CompanyList={CompanyList} />
 			</div>
