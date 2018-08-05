@@ -6,6 +6,7 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
+  //免费设计
   server.get('/sheji', (req, res) => {
 
     const actualPage = '/sheji'
@@ -14,6 +15,7 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  //免费报价
   server.get('/baojia', (req, res) => {
 
     const actualPage = '/baojia'
@@ -22,6 +24,7 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  //免费验房
   server.get('/yanfang', (req, res) => {
 
     const actualPage = '/yanfang'
@@ -30,6 +33,8 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+
+  //地区首页
   server.get('/:id', (req, res) => {
 
     const actualPage = '/shouye'
@@ -38,9 +43,20 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  //公司列表
   server.get('/:id/gs', (req, res) => {
 
     const actualPage = '/gs'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+
+  //公司详情页
+  server.get('/:id/gs/:id', (req, res) => {
+
+    const actualPage = '/gs_index'
     const queryParams = { 
         id: req.params.id 
     } 

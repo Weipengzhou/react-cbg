@@ -12,7 +12,9 @@ class Gs extends Component {
     state = {
         menu: [{ name: '综合', cate: '', id: '1' }, { name: '案例', cate: '', id: '2' }, { name: '口碑值', cate: '', id: '3' }],
         nIndex: 1,
-        list: [{}],
+        list: [{
+            id:1,name:'好又快装饰公司',company_logo:'',evaluation_times:'',address:'河南郑州'
+        }],
         style: false,
         filtrate:[0,0,0],
         cai:[{name:'空间',child:[{name:'全部',id:'1'},{name:'厨房',id:'2'}]},{name:'类型',child:[{name:'全部',id:'1'},{name:'小户型',id:'2'}]}],
@@ -64,7 +66,7 @@ class Gs extends Component {
                         <ul>
                             {this.state.list.map((e, i) => (
                                 <li key={i}>
-                                    <Link href={`/${this.props.show}/gs/${e.id}`}>
+                                    <Link as={`/${this.props.show}/gs/${e.id}`} href={`/gs_index?id=${e.id}`}>
                                         <a>
                                             <div className='com-logo'>
                                                 <img src={`http://www.zxjmy.com/${e.company_logo}`} alt={e.name} />
