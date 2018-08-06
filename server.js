@@ -62,6 +62,33 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  //公司介绍页
+  server.get('/:id/gs/:id/jieshao', (req, res) => {
+
+    const actualPage = '/jieshao'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+  //公司设计师列表页
+  server.get('/:id/gs/:id/sheji', (req, res) => {
+
+    const actualPage = '/design'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+ //公司设计师详情页
+ server.get('/:id/gs/:id/sheji/:id', (req, res) => {
+
+  const actualPage = '/designer'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
 
   server.get('*', (req, res) => {
     return handle(req, res)
