@@ -33,6 +33,26 @@ app.prepare().then(() => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
+  
+  //关于我们
+  server.get('/gywm', (req, res) => {
+
+    const actualPage = '/gywm'
+    const queryParams = { 
+        id: req.params.id 
+    } 
+    app.render(req, res, actualPage, queryParams)
+  })
+
+ //法律声明
+ server.get('/flsm', (req, res) => {
+
+  const actualPage = '/flsm'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
 
   //地区首页
   server.get('/:id', (req, res) => {
@@ -89,6 +109,28 @@ app.prepare().then(() => {
   } 
   app.render(req, res, actualPage, queryParams)
 })
+
+//装修公司工地列表
+server.get('/:id/gs/:id/gongdi', (req, res) => {
+
+  const actualPage = '/gongdi'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+//装修公司工地详情页
+server.get('/:id/gs/:id/gongdi/:id', (req, res) => {
+
+  const actualPage = '/gdxq'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+
+
+
 
   server.get('*', (req, res) => {
     return handle(req, res)

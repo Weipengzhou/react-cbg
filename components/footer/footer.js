@@ -18,8 +18,8 @@ const Footer=()=>(<footer>
         </div>
         <div className='top'>
              <a href='/about'>电脑版</a>
-             <a href='/flsm' className='two'>关于我们</a>
-             <a href='/flsm'>常见问题</a>
+             <a href='/gywm' className='two'>关于我们</a>
+             <a href='/flsm'>法律声明</a>
         </div>
         <div className='bottom'>
             <a href='tel:400-0606-129'>400-0606-129</a>
