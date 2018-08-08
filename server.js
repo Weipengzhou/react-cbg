@@ -54,6 +54,16 @@ app.prepare().then(() => {
   app.render(req, res, actualPage, queryParams)
 })
 
+//装修百科首页
+server.get('/bk', (req, res) => {
+
+  const actualPage = '/bk'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+
   //地区首页
   server.get('/:id', (req, res) => {
 
