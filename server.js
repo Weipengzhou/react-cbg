@@ -63,9 +63,69 @@ server.get('/bk', (req, res) => {
   } 
   app.render(req, res, actualPage, queryParams)
 })
+// 装修百科列表页
+server.get('/bk/:id', (req, res) => {
 
-  //地区首页
-  server.get('/:id', (req, res) => {
+  const actualPage = '/bklist'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+
+//装修攻略首页
+server.get('/gl', (req, res) => {
+
+  const actualPage = '/bk'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+// 装修攻略列表页
+server.get('/gl/:id', (req, res) => {
+
+  const actualPage = '/bklist'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+// 文章详情页
+server.get('/a/:id', (req, res) => {
+
+  const actualPage = '/article'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+
+
+//装修资讯首页
+server.get('/zx', (req, res) => {
+
+  const actualPage = '/bk'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+// 装修资讯列表页
+server.get('/zx/:id', (req, res) => {
+
+  const actualPage = '/bklist'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+
+
+
+
+//地区首页
+server.get('/:id', (req, res) => {
 
     const actualPage = '/shouye'
     const queryParams = { 
@@ -73,18 +133,18 @@ server.get('/bk', (req, res) => {
     } 
     app.render(req, res, actualPage, queryParams)
   })
-  //公司列表
-  server.get('/:id/gs', (req, res) => {
+//公司列表
+server.get('/:id/gs', (req, res) => {
 
     const actualPage = '/gs'
     const queryParams = { 
         id: req.params.id 
     } 
     app.render(req, res, actualPage, queryParams)
-  })
+ })
 
   //公司详情页
-  server.get('/:id/gs/:id', (req, res) => {
+ server.get('/:id/gs/:id', (req, res) => {
 
     const actualPage = '/gs_index'
     const queryParams = { 
