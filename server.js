@@ -120,6 +120,23 @@ server.get('/zx/:id', (req, res) => {
   } 
   app.render(req, res, actualPage, queryParams)
 })
+// 效果图列表
+server.get('/xgt', (req, res) => {
+
+  const actualPage = '/xgt'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
+server.get('/xgt/:id[a-z]+', (req, res) => {
+
+  const actualPage = '/xgt'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
 
 
 
