@@ -129,15 +129,22 @@ server.get('/xgt', (req, res) => {
   } 
   app.render(req, res, actualPage, queryParams)
 })
-server.get('/xgt/:id[a-z]+', (req, res) => {
-
-  const actualPage = '/xgt'
+server.get('/xgt/[a-z]+', (req, res) => {
+  const actualPage = '/xgt_xq'
   const queryParams = { 
       id: req.params.id 
   } 
   app.render(req, res, actualPage, queryParams)
 })
+//效果图详情页
+server.get('/xgt/[0-9]+', (req, res) => {
 
+  const actualPage = '/xiaoguotu'
+  const queryParams = { 
+      id: req.params.id 
+  } 
+  app.render(req, res, actualPage, queryParams)
+})
 
 
 
