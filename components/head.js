@@ -17,6 +17,7 @@ const Head = (props) => (
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"></link>
     <link href="https://cdn.bootcss.com/antd-mobile/2.1.10/antd-mobile.css" rel="stylesheet"></link>
     <script src='/static/js/rem.js'></script>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
     <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || ''} />
     <meta property="og:description" content={props.description || defaultDescription} />
