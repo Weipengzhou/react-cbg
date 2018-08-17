@@ -32,7 +32,7 @@ class Gs extends Component {
     }
  
     render() {
- 
+            console.log(this.props)
        return (
             <div className='company'>
                 <Head title={`${this.props.show}装修公司排名_北京装修公司哪家好？_北京装修公司如何选？_北京口碑好的装修公司_北京金蚂蚁装修网`} description={`北京金蚂蚁装修网为您严选口碑好的装修公司并且为您提供北京装修公司排名。北京装修公司如何选？北京装修公司哪家好？北京金蚂蚁装修网告诉您！！`} />

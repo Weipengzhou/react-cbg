@@ -5,10 +5,8 @@ import Nav from '../components/nav/nav'
 import city from '../components/city/city.less';
 import Footer from '../components/footer/footer';
 import { Icon } from 'antd-mobile';
-import { connect } from 'react-redux';
-import * as action from '../redux/actions';
-import { bindActionCreators } from 'redux';
-
+import fetch from 'isomorphic-unfetch';
+import url from '../url'
 const Row = (props) => (
     <div>
         {props.lists.map((a, i) => (
@@ -62,19 +60,17 @@ class  Index extends Component {
             ]
         }
     }
-    componentDidMount(){
-        this.props.citySelect()
-    }
+  
 
    render(){
-
+    console.log(this.props.shows)
     return (
         <div className='cityChose'>
             <Head title="金蚂蚁装修网" />
             <Nav title="切换城市"><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}><Icon type="left"  size='md'/> </a></Nav>
             <div className='citypage' style={{marginBottom:'0.2rem'}}>
                 <div className='current-city'>
-                {this.props.cityChose?<span>当前定位:<Link href={`/${this.props.cityChose.domain}`}><a>{this.props.cityChose.city}</a></Link></span>:<span>定位失败</span>}
+               <span>当前定位:<Link href={`/${this.props.shows.domain}`}><a>{this.props.shows.city}</a></Link></span>
                 </div>
                 <Row lists={this.state.lists} />
             </div>
@@ -86,15 +82,17 @@ class  Index extends Component {
 }
 
 
+Index.getInitialProps = async function (context) {
+	
+	const res = await fetch(`${url}bddt`);
+	const data = await res.json();
+	return {
+			shows: data.city
+	}
 
-function mapStateToProps(state) {
-    return {cityChose:state.city}
 }
-function mapDispatchToProps(dispatch) {
-    return {
-        ...bindActionCreators(action, dispatch)
-    }
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+
+
+export default Index

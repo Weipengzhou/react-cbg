@@ -12,11 +12,12 @@ function renderTabBar(props) {
 
 
   const TabExample = (props) =>{
+      console.log('最底层',props)
       return(
         <div className='xgt'>
         <WhiteSpace />
         <StickyContainer>
-          <Tabs tabs={props.tabs}
+          <Tabs tabs={props.tab}
             initalPage={'t2'}
             renderTabBar={renderTabBar}
             tabBarTextStyle={props.title}

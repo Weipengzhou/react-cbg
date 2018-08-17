@@ -5,6 +5,7 @@ function obj2String(obj, arr = [], idx = 0) {
     for (let item in obj) {
       arr[idx++] = [item, obj[item]]
     }
+    console.log(arr)
     return new URLSearchParams(arr).toString()
   }
 function get(url,data) {
@@ -36,4 +37,10 @@ const url = 'http://www.gulugl.com/api/'
 //通过ip获取定位信息
 export function citySelect(text) {
     return get(url+'bddt')
+}
+//获取首页装修公司信息
+export function indexCompany(text) {
+    console.log(text)
+     return get(url+'gsl',{city_name:text})
+
 }

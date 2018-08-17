@@ -6,6 +6,11 @@ const reducer = (state = 0, action) => {
     return Object.assign({}, state, {
       city:action.text
     });
+    case types.INDEX_COMPANY_SAVE:
+    return Object.assign({}, state, {
+      indexCity:action.text.city,
+      indexCompany:action.text.companies_list
+    });
     default:
       return state
   }
