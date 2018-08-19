@@ -12,7 +12,6 @@ function renderTabBar(props) {
 
 
   const TabExample = (props) =>{
-      console.log('最底层',props)
       return(
         <div className='xgt'>
         <WhiteSpace />

@@ -5,8 +5,7 @@ import Nav from '../components/nav/nav'
 import city from '../components/city/city.less';
 import Footer from '../components/footer/footer';
 import { Icon } from 'antd-mobile';
-import fetch from 'isomorphic-unfetch';
-import url from '../url'
+import * as apis from '../redux/api'
 const Row = (props) => (
     <div>
         {props.lists.map((a, i) => (
@@ -63,10 +62,10 @@ class  Index extends Component {
   
 
    render(){
-    console.log(this.props.shows)
+       
     return (
         <div className='cityChose'>
-            <Head title="金蚂蚁装修网" />
+            <Head title="金蚂蚁装修网"  />
             <Nav title="切换城市"><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}><Icon type="left"  size='md'/> </a></Nav>
             <div className='citypage' style={{marginBottom:'0.2rem'}}>
                 <div className='current-city'>
@@ -84,8 +83,9 @@ class  Index extends Component {
 
 Index.getInitialProps = async function (context) {
 	
-	const res = await fetch(`${url}bddt`);
-	const data = await res.json();
+    const res = await apis.citySelect();
+    
+	const data = await res;
 	return {
 			shows: data.city
 	}

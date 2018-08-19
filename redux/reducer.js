@@ -1,16 +1,14 @@
 import { types }  from './types';
-
-const reducer = (state = 0, action) => {
+let initState={
+  defaultCity:'beijing'
+}
+const reducer = (state=initState, action) => {
   switch (action.type) {
-    case types.CITY_INDEX:
+    case types.Default_City:
     return Object.assign({}, state, {
-      city:action.text
+      defaultCity:action.text
     });
-    case types.INDEX_COMPANY_SAVE:
-    return Object.assign({}, state, {
-      indexCity:action.text.city,
-      indexCompany:action.text.companies_list
-    });
+
     default:
       return state
   }

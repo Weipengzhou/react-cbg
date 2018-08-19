@@ -1,12 +1,10 @@
+import 'url-search-params-polyfill';
+import 'isomorphic-unfetch';
 function parseJSON(response) {
     return response.json();
 }
-function obj2String(obj, arr = [], idx = 0) {
-    for (let item in obj) {
-      arr[idx++] = [item, obj[item]]
-    }
-    console.log(arr)
-    return new URLSearchParams(arr).toString()
+function obj2String(obj) {
+    return new URLSearchParams(obj).toString()
   }
 function get(url,data) {
     const defaultOptions = {
@@ -35,12 +33,15 @@ function post(url,data) {
 const url = 'http://www.gulugl.com/api/'
 
 //通过ip获取定位信息
-export function citySelect(text) {
+export function citySelect(e) {
     return get(url+'bddt')
 }
 //获取首页装修公司信息
-export function indexCompany(text) {
-    console.log(text)
-     return get(url+'gsl',{city_name:text})
+export function indexCompany(e) {
+     return get(url+'gsl',e)
 
+}
+//首页报价接口
+export function indexBaojia(e){
+    return get(url+'',e)
 }

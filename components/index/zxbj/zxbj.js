@@ -17,7 +17,7 @@ class Form extends React.Component {
 
     submit = () => {
         this.props.form.validateFields((error, value) => {
-            this.props.indexBaojia({value})
+            this.props.indexBaojia(value)
             console.log(error, value);
         });
     }

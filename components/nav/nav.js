@@ -2,6 +2,9 @@ import Link from 'next/link'
 import stylesheet from './nav.less'
 import {Component} from 'react'
 import { NavBar, Icon ,Popover} from 'antd-mobile';
+import {connect} from 'react-redux';
+import * as action from '../../redux/actions';
+import { bindActionCreators } from 'redux';
 
 const Iteam=(props)=>(<li><Link href={props.url}><a><i></i><span>{props.name}</span></a></Link></li>)
 class Nav extends Component{
@@ -10,7 +13,6 @@ class Nav extends Component{
   };
 
   handleVisibleChange = (e) => {
-    console.log(e)
     this.setState({
       visible:!e,
     });
@@ -21,9 +23,10 @@ class Nav extends Component{
     })
   }
   render(){
+      const navcity=this.props.city?this.props.city:'beijing'
     return(
       <div>
-          <div className={this.state.visible?'bg':'bg none'} style={{position:'fixed',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'1'}} onClick={this.closeClick}></div>
+          <div className={this.state.visible?'bg':'bg none'} style={{position:'fixed',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'111'}} onClick={this.closeClick}></div>
           <nav style={{width:'100%',position:'fixed',top:0,zIndex:'1111'}}>
             <NavBar style={{backgroundColor:'rgba(255,255,255,1)',color:'#000',borderBottom:'1px solid #eee' }}
               mode="light"
@@ -33,12 +36,12 @@ class Nav extends Component{
               <div className={this.state.visible?'block':'block none'} style={{position:'absolute',left:'0',top:'46px',width:'100%',height:'100%'}}>
                   
                     <ul className='nav-content clearfix'>
-                        <Iteam url='/index' name='首页'/>
-                        <Iteam url='/index' name='效果图'/>
-                        <Iteam url='/index' name='装修公司'/>
-                        <Iteam url='/index' name='装修百事通'/>
-                        <Iteam url='/index' name='在线报价'/>
-                        <Iteam url='/index' name='个人中心'/>
+                        <Iteam url={`/${navcity}`} name='首页'/>
+                        <Iteam url='/xgt' name='效果图'/>
+                        <Iteam url={`/${navcity}/gs`} name='装修公司'/>
+                        <Iteam url='/bk' name='装修百事通'/>
+                        <Iteam url='/bj' name='在线报价'/>
+                        <Iteam url='/' name='个人中心'/>
                     </ul>
               </div>
             
@@ -49,6 +52,13 @@ class Nav extends Component{
   }
 }
   
+function mapStateToProps(state) {
+  return {city:state.defaultCity }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    ...bindActionCreators(action, dispatch)
+  }
+}
 
-
-export default Nav
+export default connect(mapStateToProps,mapDispatchToProps)(Nav)

@@ -4,7 +4,6 @@ import stylesheet from './baikeTab.less'
 import TabExample from '../../tab/tab'
 
 const BaikeTab = (props) => {
-    console.log('爸爸', props.Baike)
     return (
         <div style={{ marginTop: '0.2rem' }}>
             <TabExample title={props.title} tab={props.Baike.tab}>
@@ -33,7 +32,7 @@ const BaikeTab = (props) => {
                                                         </li>
                                                 
                                             ))}
-                                               <Link href={`/bk/${f.cate_pinyin}`}><a className='gd'>查看更多>></a></Link>
+                                              {props.Baike.data[f.cate_pinyin].length<1?<a className='gd'>暂无更多>></a>: <Link href={`/bk/${f.cate_pinyin}`}><a className='gd'>查看更多>></a></Link>}
                                       </ul>
                                 </div>
                             ))}

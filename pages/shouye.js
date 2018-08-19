@@ -11,9 +11,11 @@ import Company from '../components/index/company/company'
 import TabExample from '../components/tab/tab'
 import ChildTab from '../components/index/baikeTab/baikeTab'
 import Footer from '../components/footer/footer'
+import * as apis from '../redux/api'
+import {connect} from 'react-redux';
+import * as action from '../redux/actions';
+import { bindActionCreators } from 'redux';
 
-import fetch from 'isomorphic-unfetch';
-import url from '../url'
 const IndexNav = (props) => (
 	<ul className='clearfix'>
 		{props.ListData.map((e, index) => (
@@ -65,124 +67,40 @@ const tabs = {
 		{ title: '风格' },
 	]
 }
-const Baike = {
-	"tab": [{ title: '百科' }],
-	"list": [
-		{
-			"tabs": [{ title: '生活百科', cate_pinyin: 'shenghuo' },
-			 { title: "装修百科", cate_pinyin: 'zxbk' }, 
-			 { title: '房产百科', cate_pinyin: 'fangchan' },
-				{ title: "设计百科", cate_pinyin: 'sheji' },
-				 { title: "品牌百科", cate_pinyin: 'pinpai' }],
-			"data": [{
-				"t_list": [{
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "是多少是事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上事实上",
-					"updated_at": "2018-05-16",
-					"views": "aaviews"
-				}, {
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "2018-05-16",
-					"views": "views"
-				},]
-			}, {
-				"t_list": [{
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "2018-05-16",
-					"views": "bbviews"
-				}, {
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}]
-			}, {
-				"t_list": [{
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}, {
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}]
-			}, {
-				"t_list": [{
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}, {
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}]
-			}, {
-				"t_list": [{
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}, {
-					"id": "url",
-					"img": "/uploads/20180721/1532140036150993.jpg",
-					"title": "title",
-					"intro": "intro",
-					"updated_at": "updated_at",
-					"views": "bbviews"
-				}]
-			}]
-		}]
-}
 
 class Shouye extends Component {
 	constructor(props) {
 		super(props)
 
 	}
+	componentDidMount(){
+		console.log('执行了')
+		this.props.defaultCity(this.props.shows.city.city.domain)
+	}
+
+
 
 	render() {
+		
 		const ListData = [
 			{ url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
 			{ url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
 			{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
 			{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
-			{ url: `${this.props.show}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
+			{ url: `${this.props.shows.city.city.domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
 			{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
 			{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
 			{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
 		]
-		console.log(this.props)
+			const {city,domain}= this.props.shows.city.city
+	
 		return (
 		
 			<div className='Index'>
-				<Head title={`${this.props.shows.city.city.city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${this.props.shows.city.city.city}金蚂蚁装修网`} description={`${this.props.shows.city.city.city}金蚂蚁装修网（m.zxjmy.com/${this.props.shows.city.city.domain}）,${this.props.shows.city.city.city}装修网致力于为${this.props.shows.city.city.city}装修业主打造一个良好的互联网装修平台,并为${this.props.shows.city.city.city}业主推荐口碑好的装修公司免费提供室内装修报价`} />
+				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} />
 
 				<Nav title='首页'>
-					<Link href='/'><a style={{ color: '#333', fontSize: '14px' }}>{this.props.shows.city.city.city}∨</a></Link>
+					<Link href='/'><a style={{ color: '#333', fontSize: '14px' }}>{city}∨</a></Link>
 				</Nav>
 				<Slider />
 				<div className='index-navbar'>
@@ -200,11 +118,11 @@ class Shouye extends Component {
 				</TabExample>
 				<div className='home-find-company'>
 					<div className='header'>
-						<a className="title" href={`${this.props.shows.city.city.domain}/gs`}>装修公司</a>
-						<a className='more' href={`${this.props.shows.city.city.domain}/gs`}>更多></a>
+						<a className="title" href={`${domain}/gs`}>装修公司</a>
+						<a className='more' href={`${domain}/gs`}>更多></a>
 					</div>
 					<Company CompanyList={this.props.shows.city} />
-				</div>
+				</div> 
 				<ChildTab Baike={this.props.shows.second_cates} title={'装修百事通'} style={{ marginTop: '0.2rem' }} />
 				<Footer />
 				<style>{stylesheet}</style>
@@ -215,11 +133,23 @@ class Shouye extends Component {
 
 }
 
+
+function mapStateToProps(state) {
+	return {defaultCity:state.defaultCity }
+  }
+  function mapDispatchToProps(dispatch) {
+	return {
+	  ...bindActionCreators(action, dispatch)
+	}
+  }
+  
+
 Shouye.getInitialProps = async function (context) {
 	const { id } = context.query
-	const res = await fetch(`${url}gsl?city_name=${id}`);
-	const data = await res.json();
+	
+	const res = await apis.indexCompany({city_name:id})
 
+	const data = await res;
 	return {
 			shows: data
 	}
@@ -227,4 +157,4 @@ Shouye.getInitialProps = async function (context) {
 }
 
 
-export default Shouye
+export default connect(mapStateToProps,mapDispatchToProps)(Shouye)
