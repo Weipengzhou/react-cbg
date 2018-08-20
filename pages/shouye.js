@@ -74,25 +74,28 @@ class Shouye extends Component {
 
 	}
 	componentDidMount(){
-		console.log('执行了')
 		this.props.defaultCity(this.props.shows.city.city.domain)
+	}
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.shows.city.city.domain!==this.props.shows.city.city.domain){
+			this.props.defaultCity(nextProps.shows.city.city.domain)
+		}
 	}
 
 
-
 	render() {
-		
+		const {city,domain}= this.props.shows.city.city
 		const ListData = [
 			{ url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
 			{ url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
 			{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
 			{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
-			{ url: `${this.props.shows.city.city.domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
+			{ url: `${domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
 			{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
 			{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
 			{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
 		]
-			const {city,domain}= this.props.shows.city.city
+		
 	
 		return (
 		
