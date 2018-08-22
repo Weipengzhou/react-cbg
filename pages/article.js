@@ -93,5 +93,15 @@ class Article  extends Component{
         )
     }
 }
+Article.getInitialProps = async function (context) {
+   
+    const { id } = context.query
+    console.log(id)
+    // const res = await apis.getCompanyInfo({company_id:id})
 
+    // const data = await res;
+
+    return { id: id }
+
+}
 export default Article;

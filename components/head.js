@@ -10,6 +10,7 @@ const Head = (props) => (
     <title>{props.title || ''}</title>
     <meta name="description" content={props.description || defaultDescription} />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    {props.url?<link rel="canonical" href={`http://${props.url}`}/>:''}
     <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
     <link rel="apple-touch-icon" href="/static/touch-icon.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
@@ -18,7 +19,7 @@ const Head = (props) => (
     <link href="https://cdn.bootcss.com/antd-mobile/2.1.10/antd-mobile.css" rel="stylesheet"></link>
     <script src='/static/js/rem.js'></script>
     <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
-    <meta property="og:url" content={props.url || defaultOGURL} />
+    {/* <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || ''} />
     <meta property="og:description" content={props.description || defaultDescription} />
     <meta name="twitter:site" content={props.url || defaultOGURL} />
@@ -26,7 +27,7 @@ const Head = (props) => (
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="630" /> */}
 
   </NextHead>
   

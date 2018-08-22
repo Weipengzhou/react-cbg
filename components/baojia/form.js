@@ -5,7 +5,7 @@ import district from '../data/city_data';
 import { connect } from 'react-redux';
 import * as action from '../../redux/actions';
 import { bindActionCreators } from 'redux';
-
+import {Toast} from 'antd-mobile'
 class Form extends React.Component {
     state = {
         pickerValue: [],
@@ -17,11 +17,15 @@ class Form extends React.Component {
         form: formShape,
     };
 
-    submit = () => {
+    post = () => {
         this.props.form.validateFields((error, value) => {
-            this.props.indexBaojia({ value })
-            console.log(error, value);
-        });
+        
+            if(value.sms!==''){
+               this.props.submitBaojia({city:value.district,house_area:value.area,phone_num:value.phone,source:'报价',token:this.props.token,code:value.sms})
+            }else{
+                Toast.fail('请输入验证码 !!!', 1);
+            }
+        })
     }
     getSel() {
         const value = this.state.pickerValue;
@@ -32,23 +36,35 @@ class Form extends React.Component {
         return treeChildren.map(v => v.label).join(',');
     }
     handleClick = () => {
-        if (this.state.liked) {
-            this.state.liked = false;
-            this.timer = setInterval(function () {
-                var count = this.state.count;
-                count -= 1;
-                if (count < 1) {
-                    this.setState({
-                        liked: true
-                    });
-                    count = 60;
-                    clearInterval(this.timer)
+        this.props.form.validateFields((error, value) => {
+            if(JSON.stringify(value.district)==JSON.stringify(["请选择", "请选择", "请选择"])){
+                Toast.fail('请选择您的城市 !!!', 1);
+            }else if(value.area ==''){
+                Toast.fail('请输入您的房屋面积 !!!', 1);
+            }else if(!value.phone.match(/^1[0-9]{10}$/)){
+                Toast.fail('请输入正确的手机号码 !!!', 1);
+            }else{
+                if (this.state.liked) {
+                    this.state.liked = false;
+                    this.props.getCode({phone_num:value.phone})
+                    this.timer = setInterval(function () {
+                        var count = this.state.count;
+                        count -= 1;
+                        if (count < 1) {
+                            this.setState({
+                                liked: true
+                            });
+                            count = 60;
+                            clearInterval(this.timer)
+                        }
+                        this.setState({
+                            count: count
+                        });
+                    }.bind(this), 1000);
                 }
-                this.setState({
-                    count: count
-                });
-            }.bind(this), 1000);
-        }
+            }
+        });
+       
     }
     componentWillUnmount = () => { clearInterval(this.timer) }
     render() {
@@ -69,7 +85,7 @@ class Form extends React.Component {
                             onOk={() => this.setState({ visible: false })}
                             onDismiss={() => this.setState({ visible: false })}
                             {...getFieldProps('district', {
-                                initialValue: ['0', '0', '0'],
+                                initialValue: ['请选择', '请选择', '请选择'],
                             })}
                         >
                             <List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
@@ -77,12 +93,12 @@ class Form extends React.Component {
                             </List.Item>
                         </Picker></div>
                     <div className='form-list-box'><span className='area'></span><input {...getFieldProps('area', { initialValue: '' })} placeholder='输入房屋面积' /></div>
-                    <div className='form-list-box'><span className='phone'></span><input {...getFieldProps('phone', { initialValue: '' })} placeholder='输入手机，报价结果将发送您的手机' /></div>
+                    <div className='form-list-box'><span className='phone'></span><input {...getFieldProps('phone', { initialValue: '' })} placeholder='输入手机号，报价结果将发送您的手机' /></div>
                     <div className='form-list-box' style={{ border: 'none' }}>
                         <span className='sms'></span><input style={{ width: '2.7rem', float: 'left' }}{...getFieldProps('sms', { initialValue: '' })} placeholder='输入验证码' />
                         <button onClick={this.handleClick} style={{ width: '2.55rem', float: 'right' }}>{text}</button>
                     </div>
-                    <button onClick={this.submit}>立即计算</button>
+                    <button onClick={this.post}>立即计算</button>
                 </div>
 
 
@@ -91,7 +107,7 @@ class Form extends React.Component {
     }
 }
 function mapStateToProps(state) {
-    return {}
+    return {token:state.token}
 }
 function mapDispatchToProps(dispatch) {
     return {

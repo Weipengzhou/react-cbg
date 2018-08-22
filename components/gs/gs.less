@@ -43,7 +43,8 @@
         height: .82rem;
         background-color: #fff;
         border-bottom: 1px solid #eee;
-        position: relative;
+        z-index: 222;
+        position: relative;margin-top:45px;
         ul {
             padding-right: 1rem;
             overflow: hidden;
@@ -52,7 +53,8 @@
                 width: 2.16rem;
                 height: .8rem;
                 text-align: center;
-                span {
+
+                a {
                     position: relative;
                     display: inline-block;
                     text-align: center;
@@ -64,7 +66,7 @@
                 }
             }
             .active{
-                span{
+                a{
                     color: #F7C94C
                 }
             }
@@ -119,7 +121,7 @@
         overflow-x: hidden;
         position: absolute;
         z-index: 1;
-        top: 2.95rem;
+        top: 1.55rem;
         bottom: 0;
         .am-button-inline{
             background: #F7C94C;color: #fff;
@@ -136,6 +138,8 @@
                 margin-bottom: .18rem;
                 overflow: hidden;
                 height:1.6rem;
+                padding-bottom: 0.1rem;
+                border-bottom: 0.01rem dashed #eee;
                 a{
                     display: block;
                     width: 100%;
@@ -235,7 +239,7 @@
         position: absolute;
         background: #FFF;
         z-index: 11;
-        top: 2.95rem;
+        top:1.55rem;
         bottom: 0;
         width: 7.5rem;;
         .filtrate-top{

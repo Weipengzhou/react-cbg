@@ -23,7 +23,7 @@ class Nav extends Component{
     })
   }
   render(){
-      const navcity=this.props.city?this.props.city:'beijing'
+      const navcity=this.props.city?this.props.city:this.props.default?this.props.default:'beijing'
     return(
       <div>
           <div className={this.state.visible?'bg':'bg none'} style={{position:'fixed',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'111'}} onClick={this.closeClick}></div>
@@ -53,7 +53,7 @@ class Nav extends Component{
 }
   
 function mapStateToProps(state) {
-  return {city:state.defaultCity }
+  return { default:state.defaultCity}
 }
 function mapDispatchToProps(dispatch) {
   return {

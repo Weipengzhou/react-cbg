@@ -17,10 +17,11 @@ function get(url,data) {
         });
 }
 function post(url,data) {
+    console.log(url,data)
     const defaultOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
-        body:data,
+        body:obj2String(data),
     };
 
     return fetch(url, defaultOptions)
@@ -43,5 +44,63 @@ export function indexCompany(e) {
 }
 //首页报价接口
 export function indexBaojia(e){
-    return get(url+'',e)
+    return get(url+'baojia',e)
+}
+
+//免费验房
+export function yanFang(e){
+    return get(url+'yanfang',e)
+}
+
+
+//获取验证码
+export function getCode(e){
+    return post(url+'sms',e)
+}
+
+//报价提交
+export function submitBaojia(e){
+    return post(url+'offer',e)
+}
+
+//获取装修公司列表菜单
+
+export function getCompanyList(e){
+    return get(url+'company',e)
+}
+
+//获取装修公司详情页主页数据
+
+export function getCompanyInfo(e){
+    return get(url+'companydetail',e)
+}
+
+//装修公司介绍页
+export function getCompanyAbout(e){
+    return get(url+'companyintro',e)
+}
+
+//获取装修公司效果图列表
+export function getCompanyXgt(e){
+    return get(url+'case',e)
+}
+
+//获取装修公司设计师列表
+export function getCompanyDesign(e){
+    return get(url+'companydesigners',e)
+}
+
+//获取设计师详情页
+export function getDesign(e){
+    return get(url+'designerdetail',e)
+}
+
+//获取工地列表
+export function getGongdilist(e){
+    return get(url+'gongdi',e)
+}
+
+//获取工地详情页信息
+export function getGongdi(e){
+    return get(url+'gddetail',e)
 }

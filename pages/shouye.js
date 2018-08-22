@@ -16,6 +16,8 @@ import {connect} from 'react-redux';
 import * as action from '../redux/actions';
 import { bindActionCreators } from 'redux';
 
+
+
 const IndexNav = (props) => (
 	<ul className='clearfix'>
 		{props.ListData.map((e, index) => (
@@ -73,41 +75,41 @@ class Shouye extends Component {
 		super(props)
 
 	}
-	componentDidMount(){
-		this.props.defaultCity(this.props.shows.city.city.domain)
-	}
-	componentWillReceiveProps(nextProps) {
-		if(nextProps.shows.city.city.domain!==this.props.shows.city.city.domain){
-			this.props.defaultCity(nextProps.shows.city.city.domain)
-		}
-	}
+
+    componentDidMount(){
+        this.props.defaultCity(this.props.shows.city.city.domain)
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.shows.city.city.domain!==this.props.shows.city.city.domain){
+            this.props.defaultCity(nextProps.shows.city.city.domain)
+        }
+    }
 
 
 	render() {
-		const {city,domain}= this.props.shows.city.city
-		const ListData = [
-			{ url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
-			{ url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
-			{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
-			{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
-			{ url: `${domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
-			{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
-			{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
-			{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
-		]
-		
-	
+		const city = this.props.shows.city.city.city
+		const domain=this.props.shows.city.city.domain
+
 		return (
 		
 			<div className='Index'>
-				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} />
+				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} url={`${domain}.zxjmy.com`}/>
 
-				<Nav title='首页'>
+				<Nav title='首页' city={domain}>
 					<Link href='/'><a style={{ color: '#333', fontSize: '14px' }}>{city}∨</a></Link>
 				</Nav>
 				<Slider />
 				<div className='index-navbar'>
-					<IndexNav ListData={ListData} />
+					<IndexNav ListData={[
+							{ url: '/sheji', imgSrc: 'shouye-sheji@2x', alt: '金蚂蚁装修网', name: '免费设计' },
+							{ url: '/baojia', imgSrc: 'shouye-baojia@2x', alt: '金蚂蚁装修网', name: '免费报价' },
+							{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
+							{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
+							{ url: `/${domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
+							{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
+							{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
+							{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
+						]} />
 				</div>
 				<div className='zxbj-form'>
 					<p className="yusuantext"><span>6</span>秒估算装修报价</p>
@@ -138,18 +140,19 @@ class Shouye extends Component {
 
 
 function mapStateToProps(state) {
-	return {defaultCity:state.defaultCity }
+    return {defaultCity:state.defaultCity }
   }
   function mapDispatchToProps(dispatch) {
-	return {
-	  ...bindActionCreators(action, dispatch)
-	}
+    return {
+      ...bindActionCreators(action, dispatch)
+    }
   }
+
   
 
 Shouye.getInitialProps = async function (context) {
 	const { id } = context.query
-	
+
 	const res = await apis.indexCompany({city_name:id})
 
 	const data = await res;
@@ -161,3 +164,4 @@ Shouye.getInitialProps = async function (context) {
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Shouye)
+

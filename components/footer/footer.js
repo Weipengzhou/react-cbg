@@ -12,7 +12,7 @@ const Footer=()=>(<footer>
             <br/>
             <Link as={`/nanjing`} href={`/shouye?id=nanjing`}><a>南京</a></Link>
             <Link as={`/suzhou`} href={`/shouye?id=suzhou`}><a>苏州</a></Link>
-            <Link as={`/hanzhou`} href={`/shouye?id=hanzhou`}><a>杭州</a></Link>
+            <Link as={`/hangzhou`} href={`/shouye?id=hangzhou`}><a>杭州</a></Link>
             <Link as={`/zhengzhou`} href={`/shouye?id=zhengzhou`}><a>郑州</a></Link>
         
         </div>

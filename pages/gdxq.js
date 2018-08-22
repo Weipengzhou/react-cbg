@@ -6,14 +6,16 @@ import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import { Tabs, WhiteSpace } from 'antd-mobile';
 import { StickyContainer, Sticky } from 'react-sticky';
+import * as apis from '../redux/api'
+
 function renderTabBar(props) {
     return (<Sticky>
         {({ style }) => <div style={{ ...style, zIndex: 1 }}><Tabs.DefaultTabBar {...props} /></div>}
     </Sticky>);
 }
 const tabs = [
-    { title: '设计方案' },
     { title: '施工案例' },
+    { title: '设计方案' },
 ];
 const list={
     title:'庆圣诞节小区',
@@ -34,59 +36,107 @@ const Kaigong =()=>(
   const Wangong=()=>(
       <div className='fuwu clearfix'><p>验收合格</p><p>交付使用</p></div>
   );
-const Gdxq = () => (
-    <div className='Gdxq'>
-        <Head title={``} description={``} />
-        <Nav title={`苍山小区`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
-        <div className='banner'>
-            <img src="/static/img/zzgs_03.jpg" alt="" />
-        </div>
-        <div className="case-detail">
-            <p className="case-title">中式</p>
-            <p className="case-data">90㎡ | 全包 | 现代简约 | 20w</p>
-            <p className='case-statu'>开工大吉</p>
-        </div>
-        <div className='ta'>
-            <WhiteSpace />
-            <StickyContainer>
-                <Tabs tabs={tabs}
-                    initalPage={'t2'}
-                    renderTabBar={renderTabBar}
-                >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }} className='fangan'>
 
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }} className='anli'>
-                        <ul>
-                            {list.anli.map((e, index) => (
-                                <li key={index}>
-                                    <p className="title">开工大吉</p>
-                                    <p className='time'>2018-07-10</p>
-                                    {e.type===1?<Kaigong/>:e.type===2?<Yinbi/>:e.type===3?<Fenbu/>:e.type===4?<Anzhuang/>:e.type===5?<Wangong/>:''}
-                                    {e.img.map((a,i)=>(
-                                        <div className='img' key={index}>
-                                             <img src={`/static/img/zzgs_03.jpg`} alt=''/>
-                                        </div>
-                                    ))}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                </Tabs>
-            </StickyContainer>
+const Gdxq = (props) =>{
+    console.log(props)
+    const {designerDetail}=props.shows
+    
+    return  (
+        <div className='Gdxq'>
+            <Head title={`${designerDetail.companies.name}简介,装修案例,报价,地址,电话_${designerDetail.companies.city}_金蚂蚁装修网`} description={`${designerDetail.companies.city}金蚂蚁装修网为您免费分享${designerDetail.companies.name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} />
+            <Nav title={designerDetail.constructInfo.housing_estate} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+            <div className='banner'>
+                <img src="/static/img/zzgs_03.jpg" alt="" />
+            </div>
+            <div className="case-detail">
+                <p className="case-title">{designerDetail.constructInfo.housing_estate}</p>
+                <p className="case-data"> | {designerDetail.constructInfo.sort==1?'半包':'全包'} | 现代简约 | </p>
+                <p className='case-statu'>{designerDetail.constructInfo.type==1?'准备开工':designerDetail.constructInfo.type==2?'水电阶段':designerDetail.constructInfo.type==3?'泥木阶段':designerDetail.constructInfo.type==4?'油漆阶段':designerDetail.constructInfo.type==5?'竣工阶段':'准备开工'}</p>
+            </div>
+            <div className='ta'>
+                <WhiteSpace />
+                <StickyContainer>
+                    <Tabs tabs={tabs}
+                        initalPage={'2'}
+                        renderTabBar={renderTabBar}
+                    >
+                       
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }} className='anli'>
+                            <ul>
+                            {designerDetail.info.yi?<li>
+                                        <p className="title">准备开工</p>
+                                        <Kaigong/>
+                                        {designerDetail.info.yi.map((a,i)=>(
+                                            <div className='img' key={i}>
+                                                 <img src={`http://www.zxjmy.com${a}`} alt=''/>
+                                            </div>
+                                        ))}
+                                    </li>:''}
+                                    {designerDetail.info.er? <li>
+                                        <p className="title">水电阶段</p>
+                                       <Yinbi/>
+                                        {designerDetail.info.er.map((a,i)=>(
+                                            <div className='img' key={i}>
+                                                 <img src={`http://www.zxjmy.com${a}`} alt=''/>
+                                            </div>
+                                        ))}
+                                    </li>:''}
+                                    {designerDetail.info.san?<li>
+                                        <p className="title">泥木阶段</p>
+                                      <Fenbu/>
+                                        {designerDetail.info.san.map((a,i)=>(
+                                            <div className='img' key={i}>
+                                                <img src={`http://www.zxjmy.com${a}`} alt=''/>
+                                            </div>
+                                        ))}
+                                    </li>:''}
+                                    {designerDetail.info.si?<li>
+                                        <p className="title">油漆阶段</p>
+                                        <Anzhuang/>
+                                        {designerDetail.info.si.map((a,i)=>(
+                                            <div className='img' key={i}>
+                                                 <img src={`http://www.zxjmy.com${a}`} alt=''/>
+                                            </div>
+                                        ))}
+                                    </li>:''}
+                                    {designerDetail.info.wu? <li>
+                                        <p className="title">竣工阶段</p>
+                                         <Wangong/>
+                                        {designerDetail.info.wu.map((a,i)=>(
+                                            <div className='img' key={i}>
+                                                 <img src={`http://www.zxjmy.com${a}`} alt=''/>
+                                            </div>
+                                        ))}
+                                    </li>:''}
+                            </ul>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }} className='fangan' dangerouslySetInnerHTML={{
+              __html:` ${designerDetail.constructInfo.design_plan}`
+            }}>
+                               
+                        </div>
+    
+                    </Tabs>
+                </StickyContainer>
+            </div>
+    
+            <Footer />
+            <style>{stylesheet}</style>
         </div>
-
-        <Footer />
-        <style>{stylesheet}</style>
-    </div>
-)
+    )
+}
 
 Gdxq.getInitialProps = async function (context) {
+    const { id, key ,zid} = context.query
+    const res = await apis.getGongdi({ construct_id:zid });
 
-    const { id } = context.query
+    const data = await res;
+    return {
+        shows: data,
+        id: id,
+        ojbkey: key
+    }
 
-    return { show: id }
 
 }
 

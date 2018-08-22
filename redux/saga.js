@@ -1,26 +1,90 @@
-import { call, put, takeLatest} from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import * as apis from './api';
 import { types } from './types';
 import * as actions from './actions';
-import {Toast} from 'antd-mobile'
+import { Toast } from 'antd-mobile'
 
 
-function* indexBaojia({text}) {
+function* indexBaojia({ text }) {
     try {
-        const result = yield call(apis.indexBaojia,text);
-        console.log(result)
+        const result = yield call(apis.indexBaojia, text);
+
+        if (result.status == 1) {
+            Toast.success('报价成功，请等待客服与您联系!!!', 1);
+        } else {
+            Toast.fail('服务器错误 !!!', 1);
+        }
+
 
     } catch (err) {
-        
-     }
+        Toast.fail('服务器错误 !!!', 1);
+    }
+}
+
+function* yanFang({ text }) {
+    try {
+        const result = yield call(apis.yanFang, text);
+
+        if (result.status == 1) {
+            Toast.success('预约成功，请等待客服与您联系!!!', 1);
+        } else {
+            Toast.fail('服务器错误 !!!', 1);
+        }
+
+
+    } catch (err) {
+        Toast.fail('服务器错误 !!!', 1);
+    }
 }
 
 
+function* getCode({ text }) {
+    try {
+        const result = yield call(apis.getCode, text);
 
+        if (result.status == 0) {
+            yield put(actions.cunCode(result.token))
+        } else {
+            Toast.fail('服务器错误 !!!', 1);
+        }
+
+    } catch (err) {
+        Toast.fail('服务器错误 !!!', 1);
+    }
+}
+function* submitBaojia({ text }) {
+    try {
+        const result = yield call(apis.submitBaojia, text);
+        if (result.status == 1) {
+            Toast.success('报价成功，请耐心等待!!!', 1);
+        } else {
+            Toast.fail('验证码错误 !!!', 1);
+        }
+    } catch (err) {
+        Toast.fail('服务器错误 !!!', 1);
+    }
+}
+function* getCompany({ text }) {
+    try {
+        const result = yield call(apis.getCompanyList, text);
+        if (result.status == 1) {
+             console.log(result)
+        } else {
+            Toast.fail('服务器错误 !!!', 1);
+        }
+    } catch (err) {
+        Toast.fail('服务器错误 !!!', 1);
+    }
+}
 
 export default function* defaultSaga() {
     yield [
         takeLatest(types.Index_Baojia, indexBaojia),
-       
+        takeLatest(types.Yan_Fang, yanFang),
+        takeLatest(types.Get_Code, getCode),
+        takeLatest(types.Submit_Baojia, submitBaojia),
+        takeLatest(types.Get_Company, getCompany),
+
+        submitBaojia
     ];
 }

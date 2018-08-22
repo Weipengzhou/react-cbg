@@ -5,7 +5,7 @@ import  district  from '../../data/city_data';
 import {connect} from 'react-redux';
 import * as action from '../../../redux/actions';
 import { bindActionCreators } from 'redux';
-
+ import {Toast} from 'antd-mobile'
 class Form extends React.Component {
     state = {
         pickerValue: [],
@@ -17,8 +17,17 @@ class Form extends React.Component {
 
     submit = () => {
         this.props.form.validateFields((error, value) => {
-            this.props.indexBaojia(value)
-            console.log(error, value);
+            if(JSON.stringify(value.district)==JSON.stringify(["请选择", "请选择", "请选择"])){
+                Toast.fail('请选择您的城市 !!!', 1);
+            }else if(value.area==''){
+                Toast.fail('请输入您的房屋面积 !!!', 1);
+            }else if(!value.phone.match(/^1[0-9]{10}$/)){
+                Toast.fail('请输入正确的手机号码 !!!', 1);
+            }else{
+                this.props.indexBaojia({city:value.district,house_area:value.area,phone_num:value.phone})
+            }
+        
+          //  
         });
     }
     getSel() {
@@ -45,7 +54,7 @@ class Form extends React.Component {
                             onOk={() => this.setState({ visible: false })}
                             onDismiss={() => this.setState({ visible: false })}
                             {...getFieldProps('district', {
-                                initialValue: ['0', '0', '0'],
+                                initialValue: ['请选择', '请选择', '请选择'],
                               })}
                         >
                             <List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
