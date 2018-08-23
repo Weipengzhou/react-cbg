@@ -35,6 +35,7 @@ class GsIndex extends Component {
                             <span className='score'></span>
                         </div>
                     </div>
+                   
                 </div>
                 <div className='address'>
                     <p className="dz" >{companies.address}<em className="icon"></em></p>

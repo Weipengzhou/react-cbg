@@ -104,3 +104,13 @@ export function getGongdilist(e){
 export function getGongdi(e){
     return get(url+'gddetail',e)
 }
+
+//获取百科，资讯，攻略信息列表
+export function getBaike(e){
+    return get(url+'wzl',e)
+}
+//获取百科，资讯，攻略列表数据
+
+export function getList(e){
+    return get(url+'articleslist',e)
+}
