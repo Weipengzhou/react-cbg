@@ -36,7 +36,7 @@ const BaikeList = (props) => {
                     </a></Link></li>
                 ))}
             </ul>
-            {this.props.shows.companyCount <= 10 ? this.props.shows.companyCount == 0 ? <p style={{ textAlign: 'center' }}>暂无公司</p> : '' : <div className="am-pagination custom-pagination-with-icon">
+            {/* {this.props.shows.companyCount <= 10 ? this.props.shows.companyCount == 0 ? <p style={{ textAlign: 'center' }}>暂无公司</p> : '' : <div className="am-pagination custom-pagination-with-icon">
                             <div className="am-flexbox am-flexbox-align-center">
                                 <div className="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev">
                                     <a role="button" className={`am-button am-button-inline ${newUrl.page == 1 ? 'am-button-disabled' : newUrl.page ? '' : 'am-button-disabled'}`}
@@ -56,7 +56,7 @@ const BaikeList = (props) => {
                                     </a>
                                 </div>
                             </div>
-                        </div>}
+                        </div>} */}
             </div>
             <Footer />
             <style>{stylesheet}</style>

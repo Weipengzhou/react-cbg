@@ -40,7 +40,7 @@ class Nav extends Component{
                         <Iteam url='/xgt' name='效果图'/>
                         <Iteam url={`/${navcity}/gs`} name='装修公司'/>
                         <Iteam url='/bk' name='装修百事通'/>
-                        <Iteam url='/bj' name='在线报价'/>
+                        <Iteam url='/baojia' name='在线报价'/>
                         <Iteam url='/' name='个人中心'/>
                     </ul>
               </div>
