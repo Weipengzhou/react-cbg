@@ -15,7 +15,7 @@ const BaikeTab = (props) => {
                                       <ul>
                                            {props.Baike.data[f.cate_pinyin].map((a, index) => (
                                                         <li key={index} style={{height:'80px'}}>
-                                                            <Link href={`/a/${a.id}`}><a>
+                                                            <a href={`/a/${a.id}`}>
                                                                 <div className='img'><img src={`http://www.zxjmy.com${a.img}`} alt={a.title} /></div>
                                                 
                                                                 <div className='right'>
@@ -27,8 +27,8 @@ const BaikeTab = (props) => {
                                                                        
                                                                     </div>
                                                                 </div>
+                                                        
                                                             </a>
-                                                            </Link>
                                                         </li>
                                                 
                                             ))}

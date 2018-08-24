@@ -77,11 +77,14 @@ class Shouye extends Component {
 	}
 
     componentDidMount(){
-        this.props.defaultCity(this.props.shows.city.city.domain)
+		this.props.defaultCity(this.props.shows.city.city.domain)
+		localStorage.setItem('city',this.props.shows.city.city.domain)
+
     }
     componentWillReceiveProps(nextProps) {
         if(nextProps.shows.city.city.domain!==this.props.shows.city.city.domain){
-            this.props.defaultCity(nextProps.shows.city.city.domain)
+			this.props.defaultCity(nextProps.shows.city.city.domain)
+			localStorage.setItem('city',this.props.shows.city.city.domain)
         }
     }
 

@@ -10,6 +10,7 @@ function get(url,data) {
     const defaultOptions = {
         method: 'GET',
     };
+  
     return fetch(url+"?"+obj2String(data), defaultOptions)
         .then(parseJSON)
         .catch(() => {
@@ -17,7 +18,7 @@ function get(url,data) {
         });
 }
 function post(url,data) {
-    console.log(url,data)
+ 
     const defaultOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
@@ -113,4 +114,17 @@ export function getBaike(e){
 
 export function getList(e){
     return get(url+'articleslist',e)
+}
+//获取文章详情页内容
+export function getArticle(e){
+    return get(url+'wzdetail',e)
+}
+
+//获取效果图分类
+export function getXgt(e){
+    return get(url+'xgtc')
+}
+//获取效果图列表
+export function getXgtList(e){
+    return get(url+'xgtl')
 }

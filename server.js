@@ -59,6 +59,20 @@ app.prepare().then(() => {
     app.render(req, res, actualPage, queryParams)
   })
 
+  //文章详情页
+  server.get('/a/:id([0-9]+)', (req, res) => {
+    console.log('请求啊-------------------------------------------')
+    console.log(req.params.id)
+    const actualPage = '/article'
+    const queryParams = {
+      id: req.params.id
+    }
+    app.render(req, res, actualPage, queryParams)
+  })
+  
+
+ 
+
   //装修百科首页
   server.get('/bk', (req, res) => {
 
@@ -73,8 +87,10 @@ app.prepare().then(() => {
 
     const actualPage = '/bklist'
     const queryParams = {
-      id: req.params.id
+      id: 'bk',
+      lei:req.params.id
     }
+    queryParams['info']=req.query
     app.render(req, res, actualPage, queryParams)
   })
 
@@ -92,21 +108,13 @@ app.prepare().then(() => {
 
     const actualPage = '/bklist'
     const queryParams = {
-      id: req.params.id
+      id: 'gl',
+      lei:req.params.id
     }
+    queryParams['info']=req.query
     app.render(req, res, actualPage, queryParams)
   })
-  // 文章详情页
-  server.get('/a/:id', (req, res) => {
-
-    const actualPage = '/article'
-    const queryParams = {
-      id: req.params.id
-    }
-    app.render(req, res, actualPage, queryParams)
-  })
-
-
+ 
   //装修资讯首页
   server.get('/zx', (req, res) => {
 
@@ -121,8 +129,10 @@ app.prepare().then(() => {
 
     const actualPage = '/bklist'
     const queryParams = {
-      id: req.params.id
+      id: 'zx',
+      lei:req.params.id
     }
+    queryParams['info']=req.query
     app.render(req, res, actualPage, queryParams)
   })
   // 效果图列表
@@ -134,15 +144,17 @@ app.prepare().then(() => {
     }
     app.render(req, res, actualPage, queryParams)
   })
-  server.get('/xgt/[a-z]+', (req, res) => {
+
+  server.get('/xgt/:id([a-z]+)', (req, res) => {
     const actualPage = '/xgt_xq'
     const queryParams = {
       id: req.params.id
     }
+    queryParams['info']=req.query
     app.render(req, res, actualPage, queryParams)
   })
   //效果图详情页
-  server.get('/xgt/[0-9]+', (req, res) => {
+  server.get('/xgt/:id([0-9]+)', (req, res) => {
 
     const actualPage = '/xiaoguotu'
     const queryParams = {

@@ -22,7 +22,11 @@ class Nav extends Component{
       visible:false
     })
   }
+  componentDidMount(){
+    this.props.defaultCity(localStorage.getItem('city'))
+  }
   render(){
+       
       const navcity=this.props.city?this.props.city:this.props.default?this.props.default:'beijing'
     return(
       <div>
