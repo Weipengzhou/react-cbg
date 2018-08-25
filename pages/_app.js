@@ -12,12 +12,13 @@ class ExampleApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-
+   
     return {pageProps}
   }
 
   render() {
     const {Component, pageProps, store} = this.props
+   
     return (
       <Container>
         <Provider store={store}>

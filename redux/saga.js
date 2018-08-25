@@ -64,11 +64,13 @@ function* submitBaojia({ text }) {
         Toast.fail('服务器错误 !!!', 1);
     }
 }
-function* getCompany({ text }) {
+
+function* getImg({ text }) {
     try {
-        const result = yield call(apis.getCompanyList, text);
-        if (result.status == 1) {
-             console.log(result)
+        const result = yield call(apis.getImg, text);
+        if (result.code == 1) {
+          
+             yield put(actions.Save_Img(result))
         } else {
             Toast.fail('服务器错误 !!!', 1);
         }
@@ -83,8 +85,6 @@ export default function* defaultSaga() {
         takeLatest(types.Yan_Fang, yanFang),
         takeLatest(types.Get_Code, getCode),
         takeLatest(types.Submit_Baojia, submitBaojia),
-        takeLatest(types.Get_Company, getCompany),
-
-        submitBaojia
+        takeLatest(types.Get_Img, getImg),
     ];
 }

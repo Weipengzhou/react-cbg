@@ -128,3 +128,9 @@ export function getXgt(e){
 export function getXgtList(e){
     return get(url+'xgtl')
 }
+
+//获取效果图详情页
+export function getImg(e){
+    return get(url+'xgts',e)
+}
+
