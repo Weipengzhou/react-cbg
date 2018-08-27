@@ -1,0 +1,19 @@
+{
+    "apps" : [{
+        "name"        : "mobile",
+        "script"      : "./server.js",
+        "args"        : "",
+        "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+        "ignoreWatch" : ["[\\/\\\\]\\./", "node_modules"],
+        "watch"       : true,
+        "node_args"   : "--harmony",
+        "cwd"         : "./",
+        "env": {
+            "NODE_ENV": "production"
+        },
+        "log_file"   : "./log/child.log",
+        "error_file" : "./log/child-err.log",
+        "out_file"   : "./log/child-out.log"
+      }
+    ]
+  }
