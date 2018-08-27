@@ -191,6 +191,18 @@ app.prepare().then(() => {
  
     app.render(req, res, actualPage, queryParams)
   })
+  //首页
+  server.get('/', (req, res) => {
+
+    const actualPage = '/index'
+   
+    const queryParams = {
+      id: req.params.id,
+    }
+
+ 
+    app.render(req, res, actualPage, queryParams)
+  })
 
   //公司详情页
   server.get('/:id/gs/:key([0-9]+)', (req, res) => {
