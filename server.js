@@ -285,9 +285,9 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  server.listen(39001, (err) => {
+  server.listen(3001, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:39001')
+    console.log('> Ready on http://localhost:3001')
   })
 }).catch((ex) => {
   console.error(ex.stack)
