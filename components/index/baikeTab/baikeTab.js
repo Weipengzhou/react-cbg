@@ -6,7 +6,7 @@ import TabExample from '../../tab/tab'
 const BaikeTab = (props) => {
     return (
         <div style={{ marginTop: '0.2rem' }}>
-            <TabExample title={props.title} tab={props.Baike.tab}>
+            <TabExample title={props.title} tab={props.Baike.tab} trl={props.trl}>
                 {props.Baike.list.map((i, q) => (
                     <div className='baikeTab' key={q}>
                         <Tabs tabs={props.Baike.list[q]} initialPage={0} animated={false} useOnPan={false}  >
@@ -32,7 +32,7 @@ const BaikeTab = (props) => {
                                                         </li>
                                                 
                                             ))}
-                                              {props.Baike.data[f.cate_pinyin].length<1?<a className='gd'>暂无更多>></a>: <Link href={`/bk/${f.cate_pinyin}`}><a className='gd'>查看更多>></a></Link>}
+                                              {props.Baike.data[f.cate_pinyin].length<1?<a className='gd'>暂无更多>></a>:''}
                                       </ul>
                                 </div>
                             ))}

@@ -43,7 +43,7 @@ class Article  extends Component{
        
         return (
             <div className='Article'>
-                <Head title={`${articles.article.title}_金蚂蚁装修网`} description={`金蚂蚁装修网（m.zxjmy.com）为您免费分享关于《${articles.article.title}》的文章。如果大家喜欢这篇文章，希望大家能把《${articles.article.title}！》分享给您的朋友们哦！`} url={`www.zxjmy.com/a/${articles.article.id}`} />
+                <Head title={`${articles.article.title}_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端（m.zxjmy.com）为您免费分享关于《${articles.article.title}》的文章。如果大家喜欢这篇文章，希望大家能把《${articles.article.title}！》分享给您的朋友们哦！`} url={`www.zxjmy.com/a/${articles.article.id}`} />
                 <Nav title={articles.article.label_name}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
                 <div className='center'>
                 <h1>{articles.article.title}</h1>

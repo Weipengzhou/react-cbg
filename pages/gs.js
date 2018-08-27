@@ -52,7 +52,7 @@ class Gs extends Component {
         newUrl['city_name'] = this.props.id
         return (
             <div className='company'>
-                <Head title={`${city}装修公司排名_${city}装修公司哪家好？_${city}装修公司如何选？_${city}口碑好的装修公司_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网为您严选口碑好的装修公司并且为您提供${city}装修公司排名。${city}装修公司如何选？${city}装修公司哪家好？${city}金蚂蚁装修网告诉您！！`} url={`${this.props.id}.zxjmy.com/gs`} />
+                <Head title={`${city}装修公司排名_${city}装修公司哪家好？_${city}装修公司如何选？_${city}口碑好的装修公司_${city}金蚂蚁装修网手机端`} description={`${city}金蚂蚁装修网手机端为您严选口碑好的装修公司并且为您提供${city}装修公司排名。${city}装修公司如何选？${city}装修公司哪家好？${city}金蚂蚁装修网手机端告诉您！！`} url={`${this.props.id}.zxjmy.com/gs`} />
                 <Nav title={`${city}装修公司`} city={this.props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
 
                 <div className='filter-nav'>

@@ -6,12 +6,13 @@ import Style from './tab.less'
 
 function renderTabBar(props) {
     return (<Sticky>
-      {({ style }) => <div className='abc clearfix' style={{ ...style, zIndex: 1 }}> <Link href=''><a  className='title'>{props.tabBarTextStyle}</a></Link><Tabs.DefaultTabBar {...props} /></div>}
+      {({style}) => <div className='abc clearfix' style={{ ...style, zIndex: 1 }}> <Link href={props.tabBarBackgroundColor}><a  className='title' >{props.tabBarTextStyle}</a></Link><Tabs.DefaultTabBar {...props} /></div>}
     </Sticky>);
   }
 
 
   const TabExample = (props) =>{
+    console.log(props)
       return(
         <div className='xgt'>
         <WhiteSpace />
@@ -20,6 +21,7 @@ function renderTabBar(props) {
             initalPage={'t2'}
             renderTabBar={renderTabBar}
             tabBarTextStyle={props.title}
+            tabBarBackgroundColor={props.trl}
           >   
               {props.children}
           </Tabs>

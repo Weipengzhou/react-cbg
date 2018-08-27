@@ -25,7 +25,7 @@ class Slider extends Component {
                 
               <a
                 key={val}
-                href="http://www.alipay.com"
+                href="/baojia"
                 style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
               >
                 <img

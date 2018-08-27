@@ -42,7 +42,7 @@ const Gdxq = (props) =>{
     
     return  (
         <div className='Gdxq'>
-            <Head title={`${designerDetail.companies.name}简介,装修案例,报价,地址,电话_${designerDetail.companies.city}_金蚂蚁装修网`} description={`${designerDetail.companies.city}金蚂蚁装修网为您免费分享${designerDetail.companies.name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} url={`${props.id}.zxjmy.com/gs/gongdixiangqing/${props.zid}`} />
+            <Head title={`${designerDetail.companies.name}简介,装修案例,报价,地址,电话_${designerDetail.companies.city}_金蚂蚁装修网手机端`} description={`${designerDetail.companies.city}金蚂蚁装修网手机端为您免费分享${designerDetail.companies.name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} url={`${props.id}.zxjmy.com/gs/gongdixiangqing/${props.zid}`} />
             <Nav title={designerDetail.constructInfo.housing_estate} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
             <div className='banner'>
                 <img src="/static/img/zzgs_03.jpg" alt="" />

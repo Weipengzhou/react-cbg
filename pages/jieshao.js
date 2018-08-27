@@ -11,7 +11,7 @@ class Jieshao extends Component {
         const { company } = this.props.shows
         return (
             <div className='jieshao'>
-                <Head title={`${company.companyIntro.name}介绍_${company.companyIntro.city}装修公司哪家好？如何选？_${company.companyIntro.city}金蚂蚁装修网`} description={`${company.companyIntro.name}介绍,${company.companyIntro.city}金蚂蚁装修网为您免费分享${company.companyIntro.city}装修公司排名,哪家好？`} url={`${this.props.id}.zxjmy.com/gs/jieshao/${this.props.ojbkey}`} />
+                <Head title={`${company.companyIntro.name}介绍_${company.companyIntro.city}装修公司哪家好？如何选？_${company.companyIntro.city}金蚂蚁装修网手机端`} description={`${company.companyIntro.name}介绍,${company.companyIntro.city}金蚂蚁装修网手机端为您免费分享${company.companyIntro.city}装修公司排名,哪家好？`} url={`${this.props.id}.zxjmy.com/gs/jieshao/${this.props.ojbkey}`} />
                 <Nav title={`${company.companyIntro.name}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
                 <div className='about'>
                     <p className="title">公司介绍</p>

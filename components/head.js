@@ -10,6 +10,7 @@ const Head = (props) => (
     <title>{props.title || ''}</title>
     <meta name="description" content={props.description || defaultDescription} />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="baidu-site-verification" content="hMF9xpWYyj" /> 
     {props.url?<link rel="canonical" href={`http://${props.url}`}/>:''}
     <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
     <link rel="apple-touch-icon" href="/static/touch-icon.png" />

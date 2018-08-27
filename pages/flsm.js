@@ -7,7 +7,7 @@ import { Pagination, Icon } from 'antd-mobile';
 
 const Flsm = (props) => (
     <div className='Flsm'>
-        <Head title={`法律声明_金蚂蚁装修网`} description={`法律声明_金蚂蚁装修网`} url={`www.zxjmy.com/flsm`} />
+        <Head title={`法律声明_金蚂蚁装修网手机端`} description={`法律声明_金蚂蚁装修网手机端`} url={`www.zxjmy.com/flsm`} />
         <Nav title={`法律声明`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
         <h2 className="side_tit">法律声明 </h2>
         <div className='pding'>

@@ -17,7 +17,7 @@ const Bk = (props) => {
     const {articles,category}=props.shows.articles
     return (
         <div className='Bk'>
-            <Head title={`装修知识_装修${props.shows.name}_金蚂蚁装修网`} description={`金蚂蚁装修网百科频道为您免费提供装修知识,装修${props.shows.name}。希望大家能够喜欢这些装修知识`} url={`www.zxjmy.com/${props.id}`} />
+            <Head title={`装修知识_装修${props.shows.name}_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端百科频道为您免费提供装修知识,装修${props.shows.name}。希望大家能够喜欢这些装修知识`} url={`www.zxjmy.com/${props.id}`} />
             <Nav title={`${props.shows.name}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
             <header>
                 <ul>

@@ -36,29 +36,29 @@ const XiaoguotuData = {
 		{ title: '风格' },
 	],
 	huxing: [
-		{ url: 'baidu', lei: '二居室', English: 'Second residence', imgName: 'index_14', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '公寓', English: 'apartment', imgName: 'index_16', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '复式', English: 'compound', imgName: 'index_64', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '小户型', English: 'Large-sized apartment', imgName: 'index_65', alt: '金蚂蚁装修网' }
+		{ url: '/xgt/erju', lei: '二居室', English: 'Second residence', imgName: 'index_14', alt: '金蚂蚁装修网' },
+		{ url: '/xgt', lei: '公寓', English: 'apartment', imgName: 'index_16', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/fushil', lei: '复式', English: 'compound', imgName: 'index_64', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/xiaohux', lei: '小户型', English: 'Large-sized apartment', imgName: 'index_65', alt: '金蚂蚁装修网' }
 	],
 	kongjian:
 		[
-			{ url: 'baidu', lei: '客厅', English: 'living room', imgName: 'index_18', alt: '金蚂蚁装修网' },
-			{ url: 'baidu', lei: '餐厅', English: 'Restaurant', imgName: 'index_20', alt: '金蚂蚁装修网' },
-			{ url: 'baidu', lei: '卧室', English: 'Bedroom', imgName: 'index_66', alt: '金蚂蚁装修网' },
-			{ url: 'baidu', lei: '厨房', English: 'Kitchen', imgName: 'index_67', alt: '金蚂蚁装修网' }
+			{ url: '/xgt/keting', lei: '客厅', English: 'living room', imgName: 'index_18', alt: '金蚂蚁装修网' },
+			{ url: '/xgt/canting', lei: '餐厅', English: 'Restaurant', imgName: 'index_20', alt: '金蚂蚁装修网' },
+			{ url: '/xgt/woshi', lei: '卧室', English: 'Bedroom', imgName: 'index_66', alt: '金蚂蚁装修网' },
+			{ url: '/xgt/chufang', lei: '厨房', English: 'Kitchen', imgName: 'index_67', alt: '金蚂蚁装修网' }
 		],
 	jubu: [
-		{ url: 'baidu', lei: '背景墙', English: 'Background wall', imgName: 'index_23', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '吧台', English: 'Bar counter', imgName: 'index_25', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '隔断', English: 'partition', imgName: 'index_68', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '飘窗', English: 'Bay window', imgName: 'index_69', alt: '金蚂蚁装修网' }
+		{ url: '/xgt/dsqbj', lei: '背景墙', English: 'Background wall', imgName: 'index_23', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/batai', lei: '吧台', English: 'Bar counter', imgName: 'index_25', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/geduan', lei: '隔断', English: 'partition', imgName: 'index_68', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/piaochuang', lei: '飘窗', English: 'Bay window', imgName: 'index_69', alt: '金蚂蚁装修网' }
 	],
 	style: [
-		{ url: 'baidu', lei: '简约', English: 'Simple', imgName: 'index_27', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '田园', English: 'Countryside', imgName: 'index_29', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '中式', English: 'Chinese style', imgName: 'index_70', alt: '金蚂蚁装修网' },
-		{ url: 'baidu', lei: '欧式', English: 'European style', imgName: 'index_71', alt: '金蚂蚁装修网' }
+		{ url: '/xgt/jianyue', lei: '简约', English: 'Simple', imgName: 'index_27', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/tianyuan', lei: '田园', English: 'Countryside', imgName: 'index_29', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/zhongshi', lei: '中式', English: 'Chinese style', imgName: 'index_70', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/oushi', lei: '欧式', English: 'European style', imgName: 'index_71', alt: '金蚂蚁装修网' }
 	]
 }
 const tabs = {
@@ -96,7 +96,7 @@ class Shouye extends Component {
 		return (
 		
 			<div className='Index'>
-				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} url={`${domain}.zxjmy.com`}/>
+				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网手机端`} description={`${city}金蚂蚁装修网手机端（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} url={`${domain}.zxjmy.com`}/>
 
 				<Nav title='首页' city={domain}>
 					<Link href='/'><a style={{ color: '#333', fontSize: '14px' }}>{city}∨</a></Link>
@@ -118,7 +118,7 @@ class Shouye extends Component {
 					<p className="yusuantext"><span>6</span>秒估算装修报价</p>
 					<Zxbj />
 				</div>
-				<TabExample title={'看设计'} tab={tabs.sheji}>
+				<TabExample title={'看设计'} tab={tabs.sheji} trl='/xgt'>
 					<List data={XiaoguotuData.huxing} more='/xgt/huxing' />
 					<List data={XiaoguotuData.kongjian} more='/xgt/kongjian' />
 					<List data={XiaoguotuData.jubu} more='/xgt/jubu' />
@@ -131,7 +131,7 @@ class Shouye extends Component {
 					</div>
 					<Company CompanyList={this.props.shows.city} />
 				</div> 
-				<ChildTab Baike={this.props.shows.second_cates} title={'装修百事通'} style={{ marginTop: '0.2rem' }} />
+				<ChildTab Baike={this.props.shows.second_cates} trl='/bk' title={'装修百事通'} style={{ marginTop: '0.2rem' }} />
 				<Footer />
 				<style>{stylesheet}</style>
 			</div>

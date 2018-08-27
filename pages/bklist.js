@@ -21,7 +21,7 @@ const BaikeList = (props) => {
     
     return (
         <div className='Bklist'>
-            <Head title={cate_title} description={`金蚂蚁装修网(m.zxjmy.com）${name}栏目为您免费提供${cate_title}金蚂蚁装修网，希望大家能够喜欢金蚂蚁装修网（m.zxjmy.com）${name}栏目！！`} url={`www.zxjmy.com/${props.id}/${info.third_py}`} />
+            <Head title={cate_title} description={`金蚂蚁装修网手机端(m.zxjmy.com）${name}栏目为您免费提供${cate_title}金蚂蚁装修网手机端，希望大家能够喜欢金蚂蚁装修网手机端（m.zxjmy.com）${name}栏目！！`} url={`www.zxjmy.com/${props.id}/${info.third_py}`} />
             <Nav title={`${name}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
             <div className='center clearfix'>
             <div className='header'>
