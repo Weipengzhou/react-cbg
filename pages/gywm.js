@@ -7,7 +7,7 @@ import { Pagination, Icon } from 'antd-mobile';
 
 const Gywm = (props) => (
     <div className='Gywm'>
-        <Head title={`关于我们_金蚂蚁装修网`} description={`关于我们_金蚂蚁装修网`} />
+        <Head title={`关于我们_金蚂蚁装修网`} description={`关于我们_金蚂蚁装修网`}  url={`www.zxjmy.com/gywm`}/>
         <Nav title={`关于我们`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
         <div className='center'>
             <h2 className='title'>金蚂蚁装修网：装修就上金蚂蚁</h2>

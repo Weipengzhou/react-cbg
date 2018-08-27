@@ -4,41 +4,39 @@ import Head from '../components/head'
 import Nav from '../components/nav/nav'
 import { Icon, Carousel, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 import stylesheet from '../components/xgt/xiaoguotu.less'
-
-
+import * as apis from '../redux/api'
+import {connect} from 'react-redux';
+import * as action from '../redux/actions';
+import { bindActionCreators } from 'redux';
 
 class Xiaoguotu extends Component {
     state = {
-        data: ['1', '2', '3'],
         imgHeight: 176,
         slideIndex: 0,
-        name:'现代简约风格'
+        
     }
 
     componentDidMount() {
         // simulate img loading
-        setTimeout(() => {
-            this.setState({
-                data: ['1', '2', '3'],
-            });
-        }, 100);
+        this.props.Com_Get_Img({case_id:this.props.id})
+
     }
-    add = (e) => {
-        console.log('当前是第' + (e + 1) + '张', '当前图片有' + this.state.data.length + '张', '图片列表', this.state.data)
-        const len = this.state.data.length
-        const {data} =this.state
-        if ((e + 2) == len) {
-            data.push(e+3)
-            this.setState({ data})
-            this.setState({ name:'最漂亮主卧田园窗帘效果' })
-        }
-     
+    add = (e) => {  
+            this.props.Com_setImgLength(e)
+       if(e+1==this.props.Com_ImgLength){
+         this.props.Com_Get_Img({case_id:this.props.Com_NextImg})
+         window.history.pushState({},'', `/${this.props.fid}/gs/${this.props.ojbkey}/anli/${this.props.Com_NextImg}`)
+       }
     }
     render() {
+
+       const {data} =this.props.shows.company_name
+    
+       const imglist = this.props.Com_imgs?this.props.Com_imgs:data.img_path
         return (
             <div className='Xiaoguotu'>
-                <Head title={this.state.name} />
-                <Nav title={this.state.name}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
+                <Head title={`${data.title}_金蚂蚁装修网`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费分享${data.title}。如果大家喜欢这组效果图，希望大家能把《${data.title}》分享给您的朋友们哦！`} url={`${this.props.fid}.zxjmy.com/gs/anlixiaoguo/${this.props.id}`} />
+                <Nav title={this.props.Com_ImgName?this.props.Com_ImgName:data.title}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
 
                 <WingBlank>
                     <Carousel
@@ -47,25 +45,21 @@ class Xiaoguotu extends Component {
                         afterChange={this.add}
                         dots={false}
                     >
-                        {this.state.data.map(val => (
-                            <a
-                                key={val}
-                                href="http://www.alipay.com"
-                                style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                            >
-                                <img
-                                    src={`/static/img/pic/${val}.jpg`}
-                                    alt={this.state.name}
+                        {imglist.map((val,i) => (
+                            
+                                <img key={i}
+                                    src={`http://www.zxjmy.com${val}`}
+                                    alt={this.props.Com_ImgName?this.props.Com_ImgName:data.title}
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                  
                                 />
-                            </a>
+                    
                         ))}
                     </Carousel>
                 </WingBlank>
                 <div className='bottom'>
                         <div className='info'>
-                            <h1>{this.state.name}</h1>
+                            <h1>{this.props.Com_ImgName?this.props.Com_ImgName:data.title}</h1>
                         </div>
                         <Link href='/sheji'><a className='sj'>
                         我也想这样装</a></Link>
@@ -76,4 +70,36 @@ class Xiaoguotu extends Component {
     }
 }
 
-export default Xiaoguotu;
+
+
+Xiaoguotu.getInitialProps = async function (context) {
+    const {pid,key,id} = context.query
+
+    const res = await apis.getCompanyImg({case_id:pid});
+
+    const data = await res;
+
+    return {
+        shows: data,
+        id: pid,
+        ojbkey:key,
+        fid:id
+    }
+
+}
+
+function mapStateToProps(state) {
+    return {Com_imgs:state.Com_ImgList,
+        Com_ImgName:state.Com_ImgName,
+        Com_NextImg:state.Com_NextImg,
+        Com_PrevImg:state.Com_PrevImg,
+        Com_ImgLength:state.Com_ImgLength,
+        Com_ImgIndex:state.Com_ImgIndex }
+  }
+  function mapDispatchToProps(dispatch) {
+    return {
+      ...bindActionCreators(action, dispatch)
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Xiaoguotu);

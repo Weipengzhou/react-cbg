@@ -16,12 +16,11 @@ const XgtList=(props)=>{
         obj[b] = c
         return new URLSearchParams(obj).toString()
     }
-    console.log(props)
     const {pictureSets,total}=props.shows
     const {info}=props
     return (
         <div className='Xgt_xq'>
-             <Head title="效果图" />
+             <Head title="效果图" description='效果图列表'  url={`www.zxjmy.com/xgt/${props.id}`}/>
             <Nav title="效果图"><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
             <div className='center'>
                  <ul className='list'>

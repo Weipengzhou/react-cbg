@@ -233,6 +233,7 @@ app.prepare().then(() => {
       }
       app.render(req, res, actualPage, queryParams)
     })
+
   //公司设计师列表页
   server.get('/:id/gs/:key([0-9]+)/sheji', (req, res) => {
 

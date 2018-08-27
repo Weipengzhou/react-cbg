@@ -19,10 +19,9 @@ class GsIndex extends Component {
  
     render() {
         const {companies} =this.props.shows
-        console.log(this.props)
         return (
             <div className='Gs_index'>
-                <Head title={`${companies.name}_金蚂蚁装修网`} description={`金蚂蚁装修网（m.zxjmy.com）为您推荐宏利装饰装潢，并且为您免费提供宏利装饰装潢的装修案例,装修工地施工现场,设计团队以及设计作品`} />
+                <Head title={`${companies.name}_金蚂蚁装修网`} description={`金蚂蚁装修网（m.zxjmy.com）为您推荐宏利装饰装潢，并且为您免费提供宏利装饰装潢的装修案例,装修工地施工现场,设计团队以及设计作品`} url={`${this.props.id}.zxjmy.com/gs/${this.props.ojbkey}`}/>
                 <Nav title={companies.name} city={this.props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())} ><Icon type="left" size='md' /> </a></Nav>
                 <div className='tou'>
                     <div className='center'>

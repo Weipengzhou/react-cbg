@@ -10,4 +10,9 @@ export  const types ={
     Save_Img:'Save_Img' ,                   //存效果图
     Get_Img_Length:'Get_Img_Length',             //当前数组长度
     Set_Img_Length:'Set_Img_Length',             //设置当前数组长度
+    Com_Get_Img:'Com_Get_Img',                     //公司获取效果图
+    Com_Save_Img:'Com_Save_Img' ,                   //公司存效果图
+    Com_Get_Img_Length:'Com_Get_Img_Length',             //公司当前数组长度
+    Com_Set_Img_Length:'Com_Set_Img_Length',             //公司设置当前数组长度
+
 }

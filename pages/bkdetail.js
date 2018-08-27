@@ -7,7 +7,7 @@ import { Pagination, Icon, Tabs, WhiteSpace } from 'antd-mobile';
 
 import * as apis from '../redux/api'
 
-const navList = [{ title: '百科', imgName: 'baishitong-baike@2x', name: 'bk' }, { title: '攻略', imgName: 'baishitong-gonglue@2x', name: 'gl' }, { title: '资讯', imgName: 'baishitong-zixun@2x', name: 'zx' }, { title: '问答', imgName: 'baishitong-wenda@2x', name: 'wd' }, { title: '吐槽', imgName: 'baishitong-tucao@2x', name: 'tc' }]
+const navList = [{ title: '百科', imgName: 'baishitong-baike@2x', name: 'bk' }, { title: '攻略', imgName: 'baishitong-gonglue@2x', name: 'gl' }, { title: '资讯', imgName: 'baishitong-zixun@2x', name: 'zx' }, { title: '问答', imgName: 'baishitong-wenda@2x', name: 'baojia' }, { title: '吐槽', imgName: 'baishitong-tucao@2x', name: 'baojia' }]
 
 
 

@@ -39,7 +39,6 @@ class Article  extends Component{
     }
    
     render(){
-        console.log(this.props)
         const {articles,hot_articles}=this.props.data
        
         return (

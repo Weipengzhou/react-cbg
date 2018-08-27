@@ -6,15 +6,14 @@ import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import * as apis from '../redux/api'
 
-const List = [{}, {}]
+
 const Designer = (props) => {
-    console.log(props)
     const {companies,designerInfo,constructs} =props.shows.designerDetail
 
     return (
   
         <div className='Designer'>
-            <Head title={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网`} description={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网`} />
+            <Head title={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网`} description={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网`} url={`${props.id}.zxjmy.com/gs/shejishi/${props.zid}`}/>
             <Nav title={`设计师${designerInfo.name}`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
             <div className='top clearfix'>
                 <div className="img">
@@ -60,7 +59,8 @@ Designer.getInitialProps = async function (context) {
     return {
         shows: data,
         id: id,
-        ojbkey: key
+        ojbkey: key,
+        zid:zid
     }
 
 }

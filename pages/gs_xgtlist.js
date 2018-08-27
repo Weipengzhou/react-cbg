@@ -8,11 +8,10 @@ import * as apis from '../redux/api'
 const list =[{},{},{}]
 
 const GsXgt=(props)=>{
-    console.log(props)
     const {data} =props.shows.caselist
     return(
         <div className='Xgt_xq'>
-             <Head title={`${props.shows.company_name}装修案例,装修设计图,房屋设计图,农村自建房设计图_${props.shows.city}金蚂蚁装修网`} />
+             <Head title={`${props.shows.company_name}装修案例,装修设计图,房屋设计图,农村自建房设计图_${props.shows.city}金蚂蚁装修网`} description={`${props.shows.company_name}装修案例,装修设计图,房屋设计图,农村自建房设计图_${props.shows.city}金蚂蚁装修网`} url={`${props.id}.zxjmy.com/gs/anli/${props.ojbkey}`} />
             <Nav title="案例列表" city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
             <div className='center'>
                  <ul className='list'>

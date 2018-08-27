@@ -29,13 +29,13 @@ class Xiaoguotu extends Component {
        }
     }
     render() {
-        console.log(this.props)
+      
        const {data} =this.props.shows.renderingsCenter
     
        const imglist = this.props.imgs?this.props.imgs:data.img_path
         return (
             <div className='Xiaoguotu'>
-                <Head title={`${data.title}_金蚂蚁装修网`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费分享${data.title}。如果大家喜欢这组效果图，希望大家能把《${data.title}》分享给您的朋友们哦！`} />
+                <Head title={`${data.title}_金蚂蚁装修网`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费分享${data.title}。如果大家喜欢这组效果图，希望大家能把《${data.title}》分享给您的朋友们哦！`} url={`www.zxjmy.com/xgt/${this.props.id}`}/>
                 <Nav title={this.props.ImgName?this.props.ImgName:data.title}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
 
                 <WingBlank>

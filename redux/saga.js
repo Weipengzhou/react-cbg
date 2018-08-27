@@ -78,6 +78,19 @@ function* getImg({ text }) {
         Toast.fail('服务器错误 !!!', 1);
     }
 }
+function* getComImg({ text }) {
+    try {
+        const result = yield call(apis.getCompanyImg, text);
+        if (result.code == 1) {
+          
+             yield put(actions.Com_Save_Img(result))
+        } else {
+            Toast.fail('服务器错误 !!!', 1);
+        }
+    } catch (err) {
+        Toast.fail('服务器错误 !!!', 1);
+    }
+}
 
 export default function* defaultSaga() {
     yield [
@@ -86,5 +99,6 @@ export default function* defaultSaga() {
         takeLatest(types.Get_Code, getCode),
         takeLatest(types.Submit_Baojia, submitBaojia),
         takeLatest(types.Get_Img, getImg),
+        takeLatest(types.Com_Get_Img, getComImg),
     ];
 }

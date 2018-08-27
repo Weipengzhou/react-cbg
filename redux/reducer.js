@@ -2,7 +2,7 @@ import { types } from './types';
 let initState = {
   defaultCity: 'beijing',
   ImgList:[],
-  
+  Com_ImgList:[],
 }
 
 const reducer = (state = initState, action) => {
@@ -29,6 +29,19 @@ const reducer = (state = initState, action) => {
       case types.Set_Img_Length:
       return Object.assign({}, state, {
         ImgIndex: action.text
+      });
+      case types.Com_Save_Img:
+      console.log(state)
+      return Object.assign({}, state, {
+        Com_ImgName:action.text.company_name.data.title,
+        Com_NextImg:action.text.company_name.next,
+        Com_PrevImg:action.text.company_name.prev,
+        Com_ImgList:state.Com_ImgList.concat(action.text.company_name.data.img_path),
+        Com_ImgLength:action.text.company_name.data.img_path.length+state.Com_ImgList.length,
+      });
+      case types.Com_Set_Img_Length:
+      return Object.assign({}, state, {
+        Com_ImgIndex: action.text
       });
     default:
 

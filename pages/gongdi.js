@@ -8,11 +8,10 @@ import * as apis from '../redux/api'
 
 
 const Gongdi=(props)=>{
-    console.log(props)
     const {constructs,city,company_name} =props.shows
     return (
         <div className='Gongdi'>
-             <Head title={`${company_name}施工现场,在建工地,施工图预算,设计_建筑工地图片_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网为您免费分享${company_name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} />
+             <Head title={`${company_name}施工现场,在建工地,施工图预算,设计_建筑工地图片_${city}金蚂蚁装修网`} description={`${city}金蚂蚁装修网为您免费分享${company_name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} url={`${props.id}.zxjmy.com/gs/gongdi/${props.ojbkey}`} />
              <Nav title={`在建工地列表`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
              <div className='pic-list'>
                 <ul>

@@ -32,7 +32,7 @@ function post(url,data) {
     });
 }
 
-const url = 'http://www.gulugl.com/api/'
+const url = 'http://api.zxjmy.com/api/'
 
 //通过ip获取定位信息
 export function citySelect(e) {
@@ -132,5 +132,9 @@ export function getXgtList(e){
 //获取效果图详情页
 export function getImg(e){
     return get(url+'xgts',e)
+}
+//获取装修公司案例详情页
+export function getCompanyImg(e){
+    return get(url+'casedetail',e)
 }
 

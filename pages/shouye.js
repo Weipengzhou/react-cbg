@@ -109,7 +109,7 @@ class Shouye extends Component {
 							{ url: '/yanfang', imgSrc: 'shouye-yanfang@2x', alt: '金蚂蚁装修网', name: '免费验房' },
 							{ url: '/xgt', imgSrc: 'shouye-xioguotu@2x', alt: '金蚂蚁装修网', name: '效果图' },
 							{ url: `/${domain}/gs`, imgSrc: 'shouye-gongsi@2x', alt: '金蚂蚁装修网', name: '装修公司' },
-							{ url: '/wenda', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
+							{ url: '/baojia', imgSrc: 'shouye-wenda@2x', alt: '金蚂蚁装修网', name: '装修问答' },
 							{ url: '/gl', imgSrc: 'shouye-gonglue@2x', alt: '金蚂蚁装修网', name: '装修攻略' },
 							{ url: '/bk', imgSrc: 'shouye-baike@2x', alt: '金蚂蚁装修网', name: '装修百科' },
 						]} />
