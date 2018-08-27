@@ -16,16 +16,16 @@ const XgtList=(props)=>{
         obj[b] = c
         return new URLSearchParams(obj).toString()
     }
-    const {pictureSets,total}=props.shows
+    const {pictureSets,total,name}=props.shows
     const {info}=props
     return (
         <div className='Xgt_xq'>
-             <Head title="效果图" description='效果图列表'  url={`www.zxjmy.com/xgt/${props.id}`}/>
-            <Nav title="效果图"><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
+             <Head title={`${name}装修效果图_${name}图片_金蚂蚁装修网手机端`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费提供${name}装修效果图,${name}图片,金蚂蚁装修网，如果大家喜欢这些${name}装修效果图,${name}图片,金蚂蚁装修网.希望这些效果图能帮助到大家！！`}  url={`www.zxjmy.com/xgt/${props.id}`}/>
+            <Nav title={`${name}效果图`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
             <div className='center'>
                  <ul className='list'>
                      {pictureSets.data.map((e,i)=>(
-                         <li><Link href={`/xgt/${e.id}`}><a>
+                         <li key={i}><Link href={`/xgt/${e.id}`}><a>
                              <div className='img'>
                                 <img src={`http://www.zxjmy.com${e.path}`} alt={e.title}/>
                               </div>

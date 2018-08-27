@@ -126,7 +126,7 @@ export function getXgt(e){
 }
 //获取效果图列表
 export function getXgtList(e){
-    return get(url+'xgtl')
+    return get(url+'xgtl',e)
 }
 
 //获取效果图详情页
