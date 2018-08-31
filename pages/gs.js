@@ -131,8 +131,9 @@ class Gs extends Component {
 
                     </div>
                     <Footer />
-                    <BottomNav/>
                 </div>
+                <BottomNav/>
+
                 {this.state.style ?
                     <div className='filtrate'>
                         <div className='filtrate-wrap'>

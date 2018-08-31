@@ -11,7 +11,7 @@ class Select extends Component{
        
       }
     render(){
-        const navcity=this.props.city?this.props.city:this.props.defaultChinese?this.props.defaultChinese:'郑州市'
+        const navcity=this.props.city?this.props.city.replace('市',''):this.props.defaultChinese?this.props.defaultChinese.replace('市',''):'郑州'
     
         return(
             <a className='city' href='/'>{navcity}</a>

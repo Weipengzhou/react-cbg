@@ -134,7 +134,7 @@ class BottomNav extends Component {
                 <div className='centerNav' >
                     <a onClick={this.show.bind(this, 1)}>6秒报价</a>
                     <a onClick={this.show.bind(this, 2)}>免费设计</a>
-                    <a href={`/${navcity}`}>口碑公司</a>
+                    <a href={`/${navcity}/gs`}>口碑公司</a>
                     <a onClick={this.show.bind(this, 3)}>装修红包</a>
                 </div>
                 <style>{stylesheet}</style>

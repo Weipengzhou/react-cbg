@@ -36,8 +36,8 @@ const XiaoguotuData = {
 		{ title: '风格' },
 	],
 	huxing: [
-		{ url: '/xgt/erju', lei: '二居室', English: 'Second residence', imgName: 'index_14', alt: '金蚂蚁装修网' },
-		{ url: '/xgt', lei: '公寓', English: 'apartment', imgName: 'index_16', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/yiju', lei: '一居室', English: 'Second residence', imgName: 'index_14', alt: '金蚂蚁装修网' },
+		{ url: '/xgt/erju', lei: '二居室', English: 'apartment', imgName: 'index_16', alt: '金蚂蚁装修网' },
 		{ url: '/xgt/fushil', lei: '复式', English: 'compound', imgName: 'index_64', alt: '金蚂蚁装修网' },
 		{ url: '/xgt/xiaohux', lei: '小户型', English: 'Large-sized apartment', imgName: 'index_65', alt: '金蚂蚁装修网' }
 	],

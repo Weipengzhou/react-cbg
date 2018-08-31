@@ -25,7 +25,7 @@ const Footer=()=>(<footer>
         <div className='bottom'>
             <a href='tel:400-0606-129'>400-0606-129</a>
             <p>Copyright © 2017 金蚂蚁装修网 保留所有权利</p>
-            <p>ICP备案：豫ICP备17030941号-2 <a href='/baojia'>免费报价</a><a href='sheji'>免费家居设计</a></p>
+            <p>ICP备案：豫ICP备17030941号-2 <a href='/baojia'>免费报价</a><a href='/sheji'>免费家居设计</a></p>
         </div>
 
        <style>{footer}</style>
