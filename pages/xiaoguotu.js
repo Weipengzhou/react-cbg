@@ -8,7 +8,7 @@ import * as apis from '../redux/api'
 import {connect} from 'react-redux';
 import * as action from '../redux/actions';
 import { bindActionCreators } from 'redux';
-
+import Select from '../components/select/select';
 class Xiaoguotu extends Component {
     state = {
         imgHeight: 176,
@@ -36,7 +36,7 @@ class Xiaoguotu extends Component {
         return (
             <div className='Xiaoguotu'>
                 <Head title={`${data.title}_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端（www.zxjmy.com）为您免费分享${data.title}。如果大家喜欢这组效果图，希望大家能把《${data.title}》分享给您的朋友们哦！`} url={`www.zxjmy.com/xgt/${this.props.id}`}/>
-                <Nav title={this.props.ImgName?this.props.ImgName:data.title}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
+                <Nav title={this.props.ImgName?this.props.ImgName:data.title} navUrl={`/xgt/${this.props.id}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a><Select/></Nav>
 
                 <WingBlank>
                     <Carousel

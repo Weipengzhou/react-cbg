@@ -7,7 +7,9 @@ import { Pagination, Icon } from 'antd-mobile';
 import { Tabs, WhiteSpace } from 'antd-mobile';
 import { StickyContainer, Sticky } from 'react-sticky';
 import * as apis from '../redux/api'
-
+import { Select } from 'antd';
+import Selectd from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 function renderTabBar(props) {
     return (<Sticky>
         {({ style }) => <div style={{ ...style, zIndex: 1 }}><Tabs.DefaultTabBar {...props} /></div>}
@@ -39,11 +41,11 @@ const Kaigong =()=>(
 
 const Gdxq = (props) =>{
     const {designerDetail}=props.shows
-    
+
     return  (
         <div className='Gdxq'>
             <Head title={`${designerDetail.companies.name}简介,装修案例,报价,地址,电话_${designerDetail.companies.city}_金蚂蚁装修网手机端`} description={`${designerDetail.companies.city}金蚂蚁装修网手机端为您免费分享${designerDetail.companies.name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} url={`${props.id}.zxjmy.com/gs/gongdixiangqing/${props.zid}`} />
-            <Nav title={designerDetail.constructInfo.housing_estate} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+            <Nav title={designerDetail.constructInfo.housing_estate} navUrl={`/${props.id}/gs/${props.ojbkey}/gongdi/${props.zid}`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a><Selectd/></Nav>
             <div className='banner'>
                 <img src="/static/img/zzgs_03.jpg" alt="" />
             </div>
@@ -120,6 +122,7 @@ const Gdxq = (props) =>{
             </div>
     
             <Footer />
+            <BottomNav/>
             <style>{stylesheet}</style>
         </div>
     )

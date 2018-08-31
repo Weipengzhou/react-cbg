@@ -4,11 +4,12 @@ import stylesheet from '../components/flsm/flsm.less'
 import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const Flsm = (props) => (
     <div className='Flsm'>
         <Head title={`法律声明_金蚂蚁装修网手机端`} description={`法律声明_金蚂蚁装修网手机端`} url={`www.zxjmy.com/flsm`} />
-        <Nav title={`法律声明`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+        <Nav title={`法律声明`} navUrl={`/flsm`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a><Select/></Nav>
         <h2 className="side_tit">法律声明 </h2>
         <div className='pding'>
         <p>
@@ -194,6 +195,7 @@ const Flsm = (props) => (
 
     </div>
     <Footer />
+    <BottomNav/>
     <style>{stylesheet}</style>
     </div >
 )

@@ -5,14 +5,14 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import * as apis from '../redux/api'
-
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const Gongdi=(props)=>{
     const {constructs,city,company_name} =props.shows
     return (
         <div className='Gongdi'>
              <Head title={`${company_name}施工现场,在建工地,施工图预算,设计_建筑工地图片_${city}金蚂蚁装修网手机端`} description={`${city}金蚂蚁装修网手机端为您免费分享${company_name}施工现场,在建工地,施工图预算,设计,建筑工地图片`} url={`${props.id}.zxjmy.com/gs/gongdi/${props.ojbkey}`} />
-             <Nav title={`在建工地列表`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+             <Nav title={`在建工地列表`} navUrl={`/${props.id}/gs/${props.ojbkey}/gongdi`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a><Select/></Nav>
              <div className='pic-list'>
                 <ul>
                 {constructs.data.map((e,index)=>(
@@ -37,6 +37,7 @@ const Gongdi=(props)=>{
              
              </div>
              <Footer/>
+             <BottomNav/>
             <style>{stylesheet}</style>
         </div>
     )

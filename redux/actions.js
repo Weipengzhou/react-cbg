@@ -15,3 +15,5 @@ export const Com_Get_Img =text=>({type:types.Com_Get_Img,text})    //公司获�
 export const Com_Save_Img=text=>({type:types.Com_Save_Img,text})   //公司存效果图到redux
 export const Com_getImgLength=text=>({type:types.Com_Get_Img_Length,text}) // 公司获取效果图数组长度
 export const Com_setImgLength=text=>({type:types.Com_Set_Img_Length,text})  //公司设置效果图
+
+export const chineseCity =text=>({type:types.Chinese_City,text})  //全局城市汉字

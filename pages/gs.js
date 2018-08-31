@@ -6,8 +6,8 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import * as apis from '../redux/api'
-
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 class Gs extends Component {
     state = {
         menu: [{ name: '全部', cate: '', id: '1' }, { name: '案例', cate: 'case', id: '2' }, { name: '口碑值', cate: 'public_praise', id: '3' }],
@@ -53,7 +53,8 @@ class Gs extends Component {
         return (
             <div className='company'>
                 <Head title={`${city}装修公司排名_${city}装修公司哪家好？_${city}装修公司如何选？_${city}口碑好的装修公司_${city}金蚂蚁装修网手机端`} description={`${city}金蚂蚁装修网手机端为您严选口碑好的装修公司并且为您提供${city}装修公司排名。${city}装修公司如何选？${city}装修公司哪家好？${city}金蚂蚁装修网手机端告诉您！！`} url={`${this.props.id}.zxjmy.com/gs`} />
-                <Nav title={`${city}装修公司`} city={this.props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+                <Nav title={`${city}装修公司`} city={this.props.id} navUrl={`/${this.props.id}/gs`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a>
+                	<a className='city' href='/'>{city}</a></Nav>
 
                 <div className='filter-nav'>
                     <ul>
@@ -130,6 +131,7 @@ class Gs extends Component {
 
                     </div>
                     <Footer />
+                    <BottomNav/>
                 </div>
                 {this.state.style ?
                     <div className='filtrate'>
@@ -151,6 +153,7 @@ class Gs extends Component {
                             </div>
                         </div>
                     </div> : ''}
+                  
                 <style>{stylesheet}</style>
             </div>
         )

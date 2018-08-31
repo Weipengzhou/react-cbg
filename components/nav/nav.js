@@ -24,10 +24,11 @@ class Nav extends Component{
   }
   componentDidMount(){
     this.props.defaultCity(localStorage.getItem('city'))
+   
   }
   render(){
-       
-      const navcity=this.props.city?this.props.city:this.props.default?this.props.default:'beijing'
+    
+      const navcity=this.props.city?this.props.city:this.props.default?this.props.default:'zhengzhou'
     return(
       <div>
           <div className={this.state.visible?'bg':'bg none'} style={{position:'fixed',left:'0',top:'0',width:'100%',height:'100%',background:'rgba(0,0,0,.2)',zIndex:'111'}} onClick={this.closeClick}></div>
@@ -36,7 +37,7 @@ class Nav extends Component{
               mode="light"
                 leftContent= {this.props.children}
                 rightContent={[<Icon key="1" type="ellipsis" onClick={this.handleVisibleChange.bind(this,this.state.visible)} />]}
-              >{this.props.title}</NavBar>
+              ><a href={this.props.navUrl}>{this.props.title}</a></NavBar>
               <div className={this.state.visible?'block':'block none'} style={{position:'absolute',left:'0',top:'46px',width:'100%',height:'100%'}}>
                   
                     <ul className='nav-content clearfix'>

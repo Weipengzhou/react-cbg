@@ -14,5 +14,5 @@ export  const types ={
     Com_Save_Img:'Com_Save_Img' ,                   //公司存效果图
     Com_Get_Img_Length:'Com_Get_Img_Length',             //公司当前数组长度
     Com_Set_Img_Length:'Com_Set_Img_Length',             //公司设置当前数组长度
-
+    Chinese_City:'Chinese_City'      //全局城市汉字
 }

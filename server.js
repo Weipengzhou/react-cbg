@@ -204,6 +204,19 @@ app.prepare().then(() => {
     app.render(req, res, actualPage, queryParams)
   })
 
+    //网站地图
+    server.get('/map', (req, res) => {
+
+      const actualPage = '/map'
+     
+      const queryParams = {
+        id: req.params.id,
+      }
+  
+   
+      app.render(req, res, actualPage, queryParams)
+    })
+  
   //公司详情页
   server.get('/:id/gs/:key([0-9]+)', (req, res) => {
 

@@ -5,6 +5,8 @@ import stylesheet from '../components/xgt/xgt.less'
 import Footer from '../components/footer/footer'
 import { Icon ,Pagination} from 'antd-mobile';
 import * as apis from '../redux/api'
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const list =[{},{},{}]
 
 const XgtList=(props)=>{
@@ -21,7 +23,7 @@ const XgtList=(props)=>{
     return (
         <div className='Xgt_xq'>
              <Head title={`${name}装修效果图_${name}图片_金蚂蚁装修网手机端`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费提供${name}装修效果图,${name}图片,金蚂蚁装修网，如果大家喜欢这些${name}装修效果图,${name}图片,金蚂蚁装修网.希望这些效果图能帮助到大家！！`}  url={`www.zxjmy.com/xgt/${props.id}`}/>
-            <Nav title={`${name}效果图`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
+            <Nav title={`${name}效果图`} navUrl={`/xgt/${props.id}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a><Select/></Nav>
             <div className='center'>
                  <ul className='list'>
                      {pictureSets.data.map((e,i)=>(
@@ -63,6 +65,7 @@ const XgtList=(props)=>{
                
             </div>
             <Footer/>
+            <BottomNav/>
             <style>{stylesheet}</style>
         </div>
     )

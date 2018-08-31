@@ -11,7 +11,7 @@ const BaikeTab = (props) => {
                     <div className='baikeTab' key={q}>
                         <Tabs tabs={props.Baike.list[q]} initialPage={0} animated={false} useOnPan={false}  >
                             {props.Baike.list[q].map((f,m) => (
-                                  <div className='content' key={m} style={{ height: '340px', backgroundColor: '#fff' }}>
+                                  <div className='content' key={m} style={{ height: '540px', backgroundColor: '#fff' }}>
                                       <ul>
                                            {props.Baike.data[f.cate_pinyin].map((a, index) => (
                                                         <li key={index} style={{height:'80px'}}>
@@ -32,7 +32,7 @@ const BaikeTab = (props) => {
                                                         </li>
                                                 
                                             ))}
-                                              {props.Baike.data[f.cate_pinyin].length<1?<a className='gd'>暂无更多>></a>:''}
+                                              {props.Baike.data[f.cate_pinyin].length<1?<a className='gd'>暂无更多>></a>: props.Baike.data[f.cate_pinyin].length==5?<Link href={`/${props.Baike.tab[q].cate_pinyin}/${f.cate_pinyin}`}><a className='gd'>查看更多>></a></Link>:''}
                                       </ul>
                                 </div>
                             ))}

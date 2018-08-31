@@ -1,6 +1,6 @@
 import { types } from './types';
 let initState = {
-  defaultCity: 'beijing',
+  defaultCity: 'zhengzhou',
   ImgList:[],
   Com_ImgList:[],
 }
@@ -12,6 +12,10 @@ const reducer = (state = initState, action) => {
 
       return Object.assign({}, state, {
         defaultCity: action.text
+      });
+      case types.Chinese_City:
+      return Object.assign({}, state, {
+        Chinese: action.text
       });
     case types.Cun_Code:
 

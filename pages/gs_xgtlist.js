@@ -5,6 +5,8 @@ import stylesheet from '../components/xgt/xgt.less'
 import Footer from '../components/footer/footer'
 import { Icon ,Pagination} from 'antd-mobile';
 import * as apis from '../redux/api'
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const list =[{},{},{}]
 
 const GsXgt=(props)=>{
@@ -12,7 +14,7 @@ const GsXgt=(props)=>{
     return(
         <div className='Xgt_xq'>
              <Head title={`${props.shows.company_name}装修案例,装修设计图,房屋设计图,农村自建房设计图_${props.shows.city}金蚂蚁装修网手机端`} description={`${props.shows.company_name}装修案例,装修设计图,房屋设计图,农村自建房设计图_${props.shows.city}金蚂蚁装修网手机端`} url={`${props.id}.zxjmy.com/gs/anli/${props.ojbkey}`} />
-            <Nav title="案例列表" city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a></Nav>
+            <Nav title="案例列表" navUrl={`/${props.id}/gs/${props.ojbkey}/anli`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a><Select/></Nav>
             <div className='center'>
                  <ul className='list'>
                      {data.map((e,i)=>(
@@ -36,6 +38,7 @@ const GsXgt=(props)=>{
                             }} />}
             </div>
             <Footer/>
+            <BottomNav/>
             <style>{stylesheet}</style>
         </div>
     )

@@ -1,5 +1,5 @@
 footer{
-    height: 4.4rem;width:100%;background:#2E2E2E;
+    height: 4.4rem;width:100%;background:#2E2E2E;padding-bottom:1.2rem;
     .hotCity{
         height: 1.8rem;width: 100%;background: #3E3E3E;
         h2{
@@ -8,16 +8,19 @@ footer{
         a{font-size: 0.24rem;color: #FFF;display: block;float: left;width: 25%;text-align: center;margin-bottom: 0.2rem;}
     }
     .top{
-        a{display: block;width: 32%;text-align: center;float: left;color: #fff;margin: 0.2rem 0;}
+        a{display: block;width: 24%;text-align: center;float: left;color: #fff;margin: 0.2rem 0;}
         .two{border-left:0.01rem solid #FFF;border-right:0.01rem solid #FFF}
+        a:last-child{
+            border-left: 0.01rem solid #FFF;
+        }
     }
     .bottom{
         text-align: center;
-      a{
+      >a{
           position: relative;margin-bottom: 0.2rem;
         width: 3.4rem;height:0.5rem;display: inline-block;text-align: center;line-height: 0.5rem;background: #F7C94C;color: #FFF;border-radius: 0.25rem;font-size: 0.24rem;margin-top: 0.2rem;
       }
-      a::before{
+      >a::before{
         display: block;
         clear: both;
         content: "";
@@ -29,7 +32,11 @@ footer{
         background:url('/static/img/call@2x.png') no-repeat;
         background-size: cover;
       }
-      p{padding-top: 0.1rem;color: #FFF;font-size: 0.18rem;}
+      p{padding-top: 0.1rem;color: #FFF;font-size: 0.18rem;
+        a{
+            color: #FFF;margin-left: 0.2rem;
+        }
+    }
     }
 
 }

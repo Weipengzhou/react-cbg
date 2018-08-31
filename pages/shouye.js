@@ -78,13 +78,16 @@ class Shouye extends Component {
 
     componentDidMount(){
 		this.props.defaultCity(this.props.shows.city.city.domain)
+		this.props.chineseCity(this.props.shows.city.city.city)
 		localStorage.setItem('city',this.props.shows.city.city.domain)
-
+		localStorage.setItem('chinese',this.props.shows.city.city.city)
     }
     componentWillReceiveProps(nextProps) {
         if(nextProps.shows.city.city.domain!==this.props.shows.city.city.domain){
 			this.props.defaultCity(nextProps.shows.city.city.domain)
+			this.props.chineseCity(this.props.shows.city.city.city)
 			localStorage.setItem('city',this.props.shows.city.city.domain)
+			localStorage.setItem('chinese',this.props.shows.city.city.city)
         }
     }
 
@@ -98,7 +101,7 @@ class Shouye extends Component {
 			<div className='Index'>
 				<Head title={`${city}装修网推荐口碑好的装修公司_免费装修报价,装修设计效果图_${city}金蚂蚁装修网手机端`} description={`${city}金蚂蚁装修网手机端（m.zxjmy.com/${domain}）,${city}装修网致力于为${city}装修业主打造一个良好的互联网装修平台,并为${city}业主推荐口碑好的装修公司免费提供室内装修报价`} url={`${domain}.zxjmy.com`}/>
 
-				<Nav title='首页' city={domain}>
+				<Nav title='首页' navUrl={`/${domain}`} city={domain}>
 					<Link href='/'><a style={{ color: '#333', fontSize: '14px' }}>{city}∨</a></Link>
 				</Nav>
 				<Slider />

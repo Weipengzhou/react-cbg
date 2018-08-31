@@ -5,8 +5,8 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon, Tabs, WhiteSpace } from 'antd-mobile';
 import * as apis from '../redux/api'
-
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const BaikeList = (props) => {
     const obj2String=(b,c,d)=>{
         var obj = Object.assign({},props.info);
@@ -18,11 +18,12 @@ const BaikeList = (props) => {
     }
     const{articles,name,cate_title,total}=props.shows
     const {info} =props
-    
+    console.log(props)
     return (
         <div className='Bklist'>
             <Head title={cate_title} description={`金蚂蚁装修网手机端(m.zxjmy.com）${name}栏目为您免费提供${cate_title}金蚂蚁装修网手机端，希望大家能够喜欢金蚂蚁装修网手机端（m.zxjmy.com）${name}栏目！！`} url={`www.zxjmy.com/${props.id}/${info.third_py}`} />
-            <Nav title={`${name}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+            <Nav title={`${name}`} navUrl={`/${props.id}/${props.info.third_py}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a>
+            <Select/></Nav>
             <div className='center clearfix'>
             <div className='header'>
                         <a className='title'>{name}</a>
@@ -30,20 +31,22 @@ const BaikeList = (props) => {
             <ul className='list'>
                 {articles.articles.data.map((e, i) => (
                     <li key={i} className='clearfix'>
-                    <Link href={`/a/${e.id}`}><a>
+                   
                         <div className='img'>
                             <img src={`http://www.zxjmy.com${e.img}`}  alt={e.title}/>
                         </div>
                         <div className="right">
+                        <Link href={`/a/${e.id}`}><a>
                             <p className='biaoti'>
                               {e.intro}
                             </p>
+                            </a></Link>
                             <p className='info'>
                                  <time>浏览次数:{e.views}</time>
-                                 <span>{e.label_name}</span>
+                                 <span><a href={`/${props.id}/${articles.cate.cate_pinyin}`}>{articles.cate.name}</a></span>
                             </p>
                         </div>
-                    </a></Link></li>
+                   </li>
                 ))}
             </ul>
             {total <= 10 ? total == 0 ? <p style={{ textAlign: 'center' }}>暂无相关内容</p> : '' : <div className="am-pagination custom-pagination-with-icon">
@@ -69,6 +72,7 @@ const BaikeList = (props) => {
                         </div>}
             </div>
             <Footer />
+            <BottomNav/>
             <style>{stylesheet}</style>
         </div>
     )

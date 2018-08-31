@@ -5,6 +5,7 @@ import Nav from '../components/nav/nav'
 import city from '../components/city/city.less';
 import Footer from '../components/footer/footer';
 import { Icon } from 'antd-mobile';
+
 import * as apis from '../redux/api'
 const Row = (props) => (
     <div>
@@ -66,7 +67,7 @@ class  Index extends Component {
     return (
         <div className='cityChose'>
             <Head title="金蚂蚁装修网手机端_推荐口碑好的装修公司免费室内装修报价,装修价格,装修设计,效果图" description='金蚂蚁装修网手机端（m.zxjmy.com）致力于为全国装修业主打造一个良好的互联网装修平台并为业主推荐口碑好的装修公司免费提供室内装修报价,效果图'  url={'www.zxjmy.com'}/>
-            <Nav title="切换城市"><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}><Icon type="left"  size='md'/> </a></Nav>
+            <Nav title="切换城市" navUrl={`/`}><a style={{ color: '#333', fontSize: '14px' }}  onClick={()=>(window.history.back())}><Icon type="left"  size='md'/> </a></Nav>
             <div className='citypage' style={{marginBottom:'0.2rem'}}>
                 <div className='current-city'>
                <span>当前定位:<Link href={`/${domain}`}><a>{this.props.shows?this.props.shows.city:'定位中...'}</a></Link></span>
@@ -74,6 +75,7 @@ class  Index extends Component {
                 <Row lists={this.state.lists} />
             </div>
             <Footer/>
+   
             <style>{city}</style>
         </div>
     )
@@ -82,12 +84,12 @@ class  Index extends Component {
 
 
 Index.getInitialProps = async function (context) {
-	
     const res = await apis.citySelect();
-    
-	const data = await res;
+   
+    const data = await res;
 	return {
-			shows: data.city
+            shows: data.city,
+          
 	}
 
 }

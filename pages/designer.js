@@ -5,16 +5,16 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import * as apis from '../redux/api'
-
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 const Designer = (props) => {
     const {companies,designerInfo,constructs} =props.shows.designerDetail
 
     return (
-  
+        
         <div className='Designer'>
             <Head title={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网手机端`} description={`${companies.name}设计师${designerInfo.name}_${companies.city}金蚂蚁装修网手机端`} url={`${props.id}.zxjmy.com/gs/shejishi/${props.zid}`}/>
-            <Nav title={`设计师${designerInfo.name}`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+            <Nav title={`设计师${designerInfo.name}`} navUrl={`/${props.id}/gs/${props.ojbkey}/sheji/${props.zid}`} city={props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a><Select/></Nav>
             <div className='top clearfix'>
                 <div className="img">
                     <img src={`http://www.zxjmy.com${designerInfo.profile}`} alt={designerInfo.name} />
@@ -41,6 +41,7 @@ const Designer = (props) => {
                 </ul>
             </div>
             <Footer />
+            <BottomNav/>
             <style>
                 {stylesheet}
             </style>

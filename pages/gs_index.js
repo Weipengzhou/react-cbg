@@ -6,7 +6,8 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
 import * as apis from '../redux/api'
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 
 class GsIndex extends Component {
     constructor(props) {
@@ -19,10 +20,11 @@ class GsIndex extends Component {
  
     render() {
         const {companies} =this.props.shows
+      
         return (
             <div className='Gs_index'>
                 <Head title={`${companies.name}_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端（m.zxjmy.com）为您推荐宏利装饰装潢，并且为您免费提供宏利装饰装潢的装修案例,装修工地施工现场,设计团队以及设计作品`} url={`${this.props.id}.zxjmy.com/gs/${this.props.ojbkey}`}/>
-                <Nav title={companies.name} city={this.props.id}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())} ><Icon type="left" size='md' /> </a></Nav>
+                <Nav title={companies.name} city={this.props.id} navUrl={`/${this.props.id}/gs/${this.props.ojbkey}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())} ><Icon type="left" size='md' /> </a><Select/></Nav>
                 <div className='tou'>
                     <div className='center'>
                         <div className='logo'>
@@ -114,6 +116,7 @@ class GsIndex extends Component {
                        {companies.intro}   </p>
                 </div>
                 <Footer />
+                <BottomNav/>
                 <style>
                     {stylesheet}
                 </style>

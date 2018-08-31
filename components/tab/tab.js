@@ -12,7 +12,6 @@ function renderTabBar(props) {
 
 
   const TabExample = (props) =>{
-    console.log(props)
       return(
         <div className='xgt'>
         <WhiteSpace />

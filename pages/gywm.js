@@ -4,11 +4,13 @@ import stylesheet from '../components/gywm/gywm.less'
 import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon } from 'antd-mobile';
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 
 const Gywm = (props) => (
     <div className='Gywm'>
         <Head title={`关于我们_金蚂蚁装修网手机端`} description={`关于我们_金蚂蚁装修网手机端`}  url={`www.zxjmy.com/gywm`}/>
-        <Nav title={`关于我们`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+        <Nav title={`关于我们`} navUrl='/gywm'><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a><Select/></Nav>
         <div className='center'>
             <h2 className='title'>金蚂蚁装修网：装修就上金蚂蚁</h2>
             <img src={`/static/img/index_tu.png`} style={{ width: '7rem' }} />
@@ -23,6 +25,7 @@ const Gywm = (props) => (
             <p>合作咨询：523328741</p>
         </div>
         <Footer />
+        <BottomNav/>
         <style>{stylesheet}</style>
     </div>
 )

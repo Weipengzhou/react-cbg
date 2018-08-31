@@ -6,15 +6,15 @@ import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 import { Pagination, Icon, Tabs, WhiteSpace } from 'antd-mobile';
 import * as apis from '../redux/api'
-
+import Select from '../components/select/select';
+import BottomNav from '../components/bottomNav/bottomNav';
 class Article  extends Component{
     componentDidMount() {
         window._bd_share_config = {
             common : {
-                bdText : '图片',	
-                bdDesc : '内容',	
-                bdUrl : 'www.baidu.com', 	
-                bdPic : '自定义分享图片'
+                bdText : `${this.props.data.articles.article.title}`,	
+                bdDesc : `${this.props.data.articles.article.content}`,	
+                bdUrl : `http://m.zxjmy.com/a/${this.props.data.articles.article.id}`, 
             },
             share : [{
                 "bdSize" : 16
@@ -37,15 +37,21 @@ class Article  extends Component{
         }
         
     }
+    
    
     render(){
         const {articles,hot_articles}=this.props.data
-       
-        return (
+      
+         return (
             <div className='Article'>
                 <Head title={`${articles.article.title}_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端（m.zxjmy.com）为您免费分享关于《${articles.article.title}》的文章。如果大家喜欢这篇文章，希望大家能把《${articles.article.title}！》分享给您的朋友们哦！`} url={`www.zxjmy.com/a/${articles.article.id}`} />
-                <Nav title={articles.article.label_name}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a></Nav>
+                <Nav title={articles.article.label_name}  navUrl={`/a/${articles.article.id}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' /> </a>
+                <Select/>
+                </Nav>
                 <div className='center'>
+                {articles.catePath.length==1? <p> <a href={`/${articles.catePath[0].cate_pinyin}`} style={{color:'#666'}}> {articles.catePath[0].name}</a></p>: articles.catePath.length==2?<p><a href={`/${articles.catePath[0].cate_pinyin}`} style={{color:'#666'}}> {articles.catePath[0].name}</a>><a href={`/${articles.catePath[0].cate_pinyin}/${articles.catePath[1].cate_pinyin}`}  style={{color:'#666'}}>  {articles.catePath[1].name} </a></p>: articles.catePath.length==3?<p>  <a href={`/${articles.catePath[0].cate_pinyin}`} style={{color:'#666'}}> {articles.catePath[0].name}</a>><a href={`/${articles.catePath[0].cate_pinyin}/${articles.catePath[1].cate_pinyin}`}  style={{color:'#666'}}>  {articles.catePath[1].name} </a>><a href={`/${articles.catePath[0].cate_pinyin}/${articles.catePath[2].cate_pinyin}`} style={{color:'#666'}}>  {articles.catePath[2].name} </a></p>:''}
+               
+            
                 <h1>{articles.article.title}</h1>
                 <div className="info">
                     <span className="time">{articles.article.created_at}</span>
@@ -89,6 +95,7 @@ class Article  extends Component{
                 </div>
                 </div>
                 <Footer />
+                <BottomNav/>
                 <style>{stylesheet}</style>
                
             </div>
