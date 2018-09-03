@@ -26,7 +26,6 @@ class BottomNav extends Component {
 
     }
     submit = (e) => {
-        console.log(e)
         this.props.form.validateFields((error, value) => {
 
             if (JSON.stringify(value.district) == JSON.stringify(["请选择", "请选择", "请选择"])) {

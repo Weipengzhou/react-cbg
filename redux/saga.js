@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import Router from 'next/router'
 import * as apis from './api';
 import { types } from './types';
 import * as actions from './actions';
@@ -26,7 +27,7 @@ function* yanFang({ text }) {
         const result = yield call(apis.yanFang, text);
 
         if (result.status == 1) {
-            Toast.success('预约成功，请等待客服与您联系!!!', 1);
+            yield put(Router.push('/success'))
         } else {
             Toast.fail('服务器错误 !!!', 1);
         }
