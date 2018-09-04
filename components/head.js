@@ -12,9 +12,9 @@ const Head = (props) => (
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
     <meta name="baidu-site-verification" content="hMF9xpWYyj" /> 
     {props.url?<link rel="canonical" href={`http://${props.url}`}/>:''}
-    <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
-    <link rel="apple-touch-icon" href="/static/touch-icon.png" />
-    <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
+    <link rel="icon" sizes="192x192" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/favicon.ico" />
+    <link rel="mask-icon" href="/static/favicon.ico" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"></link>
     <link href="https://cdn.bootcss.com/antd-mobile/2.1.10/antd-mobile.css" rel="stylesheet"></link>
@@ -29,7 +29,17 @@ const Head = (props) => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" /> */}
-
+    <script>
+       {` var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?68df874fd78fd8f5cdv45fd470a49b12";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+           
+            `}
+        </script>
   </NextHead>
   
 )
