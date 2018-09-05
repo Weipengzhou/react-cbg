@@ -10,7 +10,7 @@ const cai = [{name:'fengge',title:'风格'},{name:'huxing',title:'户型'},{name
 const Xgt=(props)=>{
     return  (
         <div className='Xgt'>
-            <Head title="最新室内装修效果图大全_家居装修设计效果图_房子装修图_装修设计图_金蚂蚁装修网" description='金蚂蚁装修网为您免费提供最新的最新室内装修效果图大全,家居装修设计效果图,房子装修图,装修设计图.希望大家能够喜欢这些最新室内装修效果图大全,家居装修设计效果图,房子装修图,装修设计图.'  url={`www.zxjmy.com/xgt`}/>
+            <Head title="最新室内装修效果图大全_家居装修设计效果图_房子装修图_装修设计图_金蚂蚁装修网手机端" description='金蚂蚁装修网手机端为您免费提供最新的最新室内装修效果图大全,家居装修设计效果图,房子装修图,装修设计图.希望大家能够喜欢这些最新室内装修效果图大全,家居装修设计效果图,房子装修图,装修设计图.'  url={`www.zxjmy.com/xgt`}/>
             <Nav title="效果图" navUrl='/xgt'><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a><Select/></Nav>
             <header>
                 <img src={'/static/img/banner4.jpg'} alt='' />

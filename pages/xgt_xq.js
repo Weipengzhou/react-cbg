@@ -22,7 +22,7 @@ const XgtList=(props)=>{
     const {info}=props
     return (
         <div className='Xgt_xq'>
-             <Head title={`${name}装修效果图_${name}图片_金蚂蚁装修网手机端`} description={`金蚂蚁装修网（www.zxjmy.com）为您免费提供${name}装修效果图,${name}图片,金蚂蚁装修网，如果大家喜欢这些${name}装修效果图,${name}图片,金蚂蚁装修网.希望这些效果图能帮助到大家！！`}  url={`www.zxjmy.com/xgt/${props.id}`}/>
+             <Head title={`${name}装修效果图_${name}图片_金蚂蚁装修网手机端`} description={`金蚂蚁装修网手机端（www.zxjmy.com）为您免费提供${name}装修效果图,${name}图片,金蚂蚁装修网手机端，如果大家喜欢这些${name}装修效果图,${name}图片,金蚂蚁装修网手机端.希望这些效果图能帮助到大家！！`}  url={`www.zxjmy.com/xgt/${props.id}`}/>
             <Nav title={`${name}效果图`} navUrl={`/xgt/${props.id}`}><a style={{ color: '#333', fontSize: '14px' }} onClick={() => (window.history.back())}><Icon type="left" size='md' />  </a><Select/></Nav>
             <div className='center'>
                  <ul className='list'>
