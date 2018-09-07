@@ -122,10 +122,10 @@ class Shouye extends Component {
 					<Zxbj />
 				</div>
 				<TabExample title={'看设计'} tab={tabs.sheji} trl='/xgt'>
-					<List data={XiaoguotuData.huxing} more='/xgt/huxing' />
-					<List data={XiaoguotuData.kongjian} more='/xgt/kongjian' />
-					<List data={XiaoguotuData.jubu} more='/xgt/jubu' />
-					<List data={XiaoguotuData.style} more='/xgt/style' />
+					<List data={XiaoguotuData.huxing} more='/xgt' />
+					<List data={XiaoguotuData.kongjian} more='/xgt' />
+					<List data={XiaoguotuData.jubu} more='/xgt' />
+					<List data={XiaoguotuData.style} more='/xgt' />
 				</TabExample>
 				<div className='home-find-company'>
 					<div className='header'>
